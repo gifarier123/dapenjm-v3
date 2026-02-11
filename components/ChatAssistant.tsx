@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Minimize2, Sparkles, Loader2, RefreshCw } from 'lucide-react';
 import { ChatMessage } from '../types';
-import { createChatSession, sendMessageToGemini } from '../services/gemini';
-import { Chat } from "@google/genai";
+import { sendMessageToGemini } from '../services/gemini';
 
 export const ChatAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,35 +10,7 @@ export const ChatAssistant: React.FC = () => {
   ]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [chatSession, setChatSession] = useState<Chat | null>(null);
-  const [connectionError, setConnectionError] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  // Function to initialize chat
-  const initChat = () => {
-    const session = createChatSession();
-    if (session) {
-      setChatSession(session);
-      setConnectionError(false);
-    } else {
-      setConnectionError(true);
-      // Only add error message if it's the first attempt or user manually retried
-      if (messages.length === 1) {
-         setMessages(prev => [...prev, { 
-          role: 'model', 
-          text: 'Gagal terhubung ke layanan AI. Pastikan konfigurasi API Key sudah benar.', 
-          timestamp: new Date() 
-        }]);
-      }
-    }
-  };
-
-  // Initialize Chat Session on Open
-  useEffect(() => {
-    if (isOpen && !chatSession) {
-      initChat();
-    }
-  }, [isOpen]);
 
   // Scroll to bottom
   useEffect(() => {
@@ -53,11 +24,12 @@ export const ChatAssistant: React.FC = () => {
     setInputText('');
     
     // Add User Message
-    setMessages(prev => [...prev, { role: 'user', text: userMessage, timestamp: new Date() }]);
+    const newHistory = [...messages, { role: 'user', text: userMessage, timestamp: new Date() } as ChatMessage];
+    setMessages(newHistory);
     setIsLoading(true);
 
-    // Get AI Response
-    const responseText = await sendMessageToGemini(chatSession, userMessage);
+    // Get AI Response from Backend API
+    const responseText = await sendMessageToGemini(messages, userMessage);
     
     setMessages(prev => [...prev, { role: 'model', text: responseText, timestamp: new Date() }]);
     setIsLoading(false);
@@ -96,21 +68,12 @@ export const ChatAssistant: React.FC = () => {
               <div>
                 <h3 className="font-bold text-sm">Dapen Assistant</h3>
                 <p className="text-xs text-corporate-200 flex items-center gap-1">
-                  <span className={`w-1.5 h-1.5 rounded-full ${chatSession ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`}></span>
-                  {chatSession ? 'Online' : 'Offline'}
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                  Online
                 </p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-               {connectionError && (
-                <button 
-                  onClick={initChat} 
-                  className="p-1 hover:bg-white/10 rounded-full transition-colors"
-                  title="Coba hubungkan ulang"
-                >
-                  <RefreshCw className="w-4 h-4" />
-                </button>
-              )}
               <button 
                 onClick={() => setIsOpen(false)} 
                 className="p-1 hover:bg-white/10 rounded-full transition-colors"
@@ -159,16 +122,15 @@ export const ChatAssistant: React.FC = () => {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder={chatSession ? "Tulis pesan Anda..." : "Chat offline..."}
-                disabled={!chatSession}
-                className="w-full bg-gray-100 text-gray-800 text-sm rounded-xl pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-corporate-500 resize-none h-12 max-h-24 disabled:opacity-50 disabled:cursor-not-allowed"
+                placeholder="Tulis pesan Anda..."
+                className="w-full bg-gray-100 text-gray-800 text-sm rounded-xl pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-corporate-500 resize-none h-12 max-h-24"
                 rows={1}
               />
               <button
                 onClick={handleSend}
-                disabled={isLoading || !inputText.trim() || !chatSession}
+                disabled={isLoading || !inputText.trim()}
                 className={`absolute right-2 top-2 p-2 rounded-lg transition-colors ${
-                  inputText.trim() && !isLoading && chatSession
+                  inputText.trim() && !isLoading
                     ? 'bg-corporate-900 text-white hover:bg-corporate-800' 
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 }`}

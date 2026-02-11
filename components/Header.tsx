@@ -3,9 +3,10 @@ import { Menu, X, LogIn } from 'lucide-react';
 
 interface HeaderProps {
   onLoginClick: () => void;
+  onNavigateHome?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onLoginClick }) => {
+export const Header: React.FC<HeaderProps> = ({ onLoginClick, onNavigateHome }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -43,20 +44,30 @@ export const Header: React.FC<HeaderProps> = ({ onLoginClick }) => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-      setIsMobileMenuOpen(false);
-      setActiveSection(targetId);
+    
+    // Call reset callback if provided (to exit Blog Detail view)
+    if (onNavigateHome) {
+        onNavigateHome();
     }
+
+    const targetId = href.replace('#', '');
+    
+    // Use setTimeout to allow the View change (if any) to render the Home sections before scrolling
+    setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+            const headerOffset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+            setIsMobileMenuOpen(false);
+            setActiveSection(targetId);
+        }
+    }, 100);
   };
 
   return (

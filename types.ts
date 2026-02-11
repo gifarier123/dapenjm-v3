@@ -7,6 +7,8 @@ export interface NewsItem {
   category: string;
   imageUrl: string;
   summary: string;
+  slug?: string;
+  content?: string;
 }
 
 export interface ServiceItem {
