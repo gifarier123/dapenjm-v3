@@ -19,26 +19,26 @@ Your goal is to answer general inquiries about:
 Keep answers concise (under 150 words) unless asked for details.
 `;
 
-// Changed to return Chat | null to handle missing configuration gracefully
 export const createChatSession = (): Chat | null => {
   const apiKey = process.env.API_KEY;
   
-  // Guard clause to prevent crash if API Key is missing
+  // Basic validation
   if (!apiKey) {
-    console.warn("Gemini API Key is missing or empty. Chat feature will be disabled.");
+    console.error("Gemini API Key is missing. Please check your environment variables.");
     return null;
   }
 
   try {
-    // Initialize only when called
     const ai = new GoogleGenAI({ apiKey });
-    return ai.chats.create({
+    const chat = ai.chats.create({
       model: 'gemini-3-flash-preview',
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
         temperature: 0.7,
       },
     });
+    console.log("Gemini Chat Session Initialized Successfully");
+    return chat;
   } catch (error) {
     console.error("Failed to initialize Gemini client:", error);
     return null;
@@ -47,7 +47,8 @@ export const createChatSession = (): Chat | null => {
 
 export const sendMessageToGemini = async (chat: Chat | null, message: string): Promise<string> => {
   if (!chat) {
-    return "Maaf, layanan asisten virtual sedang tidak tersedia saat ini (Masalah Konfigurasi Sistem).";
+    // Attempt to recover if chat was not initialized
+    return "Maaf, koneksi ke asisten virtual belum tersedia. Silakan muat ulang halaman atau coba lagi nanti.";
   }
 
   try {
@@ -55,6 +56,6 @@ export const sendMessageToGemini = async (chat: Chat | null, message: string): P
     return response.text || "Maaf, saya tidak dapat memproses permintaan Anda saat ini.";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "Maaf, terjadi kesalahan pada sistem. Silakan coba lagi nanti.";
+    return "Maaf, terjadi kesalahan saat menghubungi server. Silakan coba lagi nanti.";
   }
 };

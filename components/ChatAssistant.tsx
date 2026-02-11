@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Minimize2, Sparkles, Loader2 } from 'lucide-react';
+import { MessageCircle, X, Send, Minimize2, Sparkles, Loader2, RefreshCw } from 'lucide-react';
 import { ChatMessage } from '../types';
 import { createChatSession, sendMessageToGemini } from '../services/gemini';
 import { Chat } from "@google/genai";
@@ -12,24 +12,34 @@ export const ChatAssistant: React.FC = () => {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [chatSession, setChatSession] = useState<Chat | null>(null);
+  const [connectionError, setConnectionError] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Initialize Chat Session on Open
-  useEffect(() => {
-    if (isOpen && !chatSession) {
-      const session = createChatSession();
-      if (session) {
-        setChatSession(session);
-      } else {
-        // Handle case where session creation failed (e.g. missing API Key)
-        setMessages(prev => [...prev, { 
+  // Function to initialize chat
+  const initChat = () => {
+    const session = createChatSession();
+    if (session) {
+      setChatSession(session);
+      setConnectionError(false);
+    } else {
+      setConnectionError(true);
+      // Only add error message if it's the first attempt or user manually retried
+      if (messages.length === 1) {
+         setMessages(prev => [...prev, { 
           role: 'model', 
-          text: 'Mohon maaf, fitur chat sedang dalam pemeliharaan sistem (API Key Configuration). Anda tetap dapat menghubungi kami melalui kontak yang tersedia.', 
+          text: 'Gagal terhubung ke layanan AI. Pastikan konfigurasi API Key sudah benar.', 
           timestamp: new Date() 
         }]);
       }
     }
-  }, [isOpen, chatSession]);
+  };
+
+  // Initialize Chat Session on Open
+  useEffect(() => {
+    if (isOpen && !chatSession) {
+      initChat();
+    }
+  }, [isOpen]);
 
   // Scroll to bottom
   useEffect(() => {
@@ -46,7 +56,7 @@ export const ChatAssistant: React.FC = () => {
     setMessages(prev => [...prev, { role: 'user', text: userMessage, timestamp: new Date() }]);
     setIsLoading(true);
 
-    // Get AI Response (Handles null chatSession inside the service)
+    // Get AI Response
     const responseText = await sendMessageToGemini(chatSession, userMessage);
     
     setMessages(prev => [...prev, { role: 'model', text: responseText, timestamp: new Date() }]);
@@ -92,6 +102,15 @@ export const ChatAssistant: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center space-x-2">
+               {connectionError && (
+                <button 
+                  onClick={initChat} 
+                  className="p-1 hover:bg-white/10 rounded-full transition-colors"
+                  title="Coba hubungkan ulang"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                </button>
+              )}
               <button 
                 onClick={() => setIsOpen(false)} 
                 className="p-1 hover:bg-white/10 rounded-full transition-colors"
@@ -140,7 +159,7 @@ export const ChatAssistant: React.FC = () => {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Tulis pesan Anda..."
+                placeholder={chatSession ? "Tulis pesan Anda..." : "Chat offline..."}
                 disabled={!chatSession}
                 className="w-full bg-gray-100 text-gray-800 text-sm rounded-xl pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-corporate-500 resize-none h-12 max-h-24 disabled:opacity-50 disabled:cursor-not-allowed"
                 rows={1}
