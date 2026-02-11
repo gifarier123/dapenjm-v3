@@ -1,9 +1,5 @@
 import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 
-// Initialize Gemini Client
-// IMPORTANT: API Key is assumed to be in process.env.API_KEY
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 const SYSTEM_INSTRUCTION = `
 You are "Dapen Assistant", a professional and helpful virtual assistant for Dana Pensiun Jasa Marga (Pension Fund). 
 Your tone should be polite, corporate, professional, and reassuring (Indonesian Language).
@@ -23,17 +19,37 @@ Your goal is to answer general inquiries about:
 Keep answers concise (under 150 words) unless asked for details.
 `;
 
-export const createChatSession = (): Chat => {
-  return ai.chats.create({
-    model: 'gemini-3-flash-preview',
-    config: {
-      systemInstruction: SYSTEM_INSTRUCTION,
-      temperature: 0.7,
-    },
-  });
+// Changed to return Chat | null to handle missing configuration gracefully
+export const createChatSession = (): Chat | null => {
+  const apiKey = process.env.API_KEY;
+  
+  // Guard clause to prevent crash if API Key is missing
+  if (!apiKey) {
+    console.warn("Gemini API Key is missing or empty. Chat feature will be disabled.");
+    return null;
+  }
+
+  try {
+    // Initialize only when called
+    const ai = new GoogleGenAI({ apiKey });
+    return ai.chats.create({
+      model: 'gemini-3-flash-preview',
+      config: {
+        systemInstruction: SYSTEM_INSTRUCTION,
+        temperature: 0.7,
+      },
+    });
+  } catch (error) {
+    console.error("Failed to initialize Gemini client:", error);
+    return null;
+  }
 };
 
-export const sendMessageToGemini = async (chat: Chat, message: string): Promise<string> => {
+export const sendMessageToGemini = async (chat: Chat | null, message: string): Promise<string> => {
+  if (!chat) {
+    return "Maaf, layanan asisten virtual sedang tidak tersedia saat ini (Masalah Konfigurasi Sistem).";
+  }
+
   try {
     const response: GenerateContentResponse = await chat.sendMessage({ message });
     return response.text || "Maaf, saya tidak dapat memproses permintaan Anda saat ini.";

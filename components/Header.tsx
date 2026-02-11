@@ -73,9 +73,9 @@ export const Header: React.FC<HeaderProps> = ({ onLoginClick }) => {
             className="flex items-center space-x-3 group cursor-pointer" 
             onClick={(e) => handleNavClick(e, '#home')}
           >
-            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg border border-corporate-100 transition-transform group-hover:scale-105 overflow-hidden p-1">
+            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg border border-corporate-100 transition-transform group-hover:scale-105 overflow-hidden p-1 flex-shrink-0">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Logo_Jasa_Marga.svg/800px-Logo_Jasa_Marga.svg.png" 
+                src="https://img.playbook.com/O_-Jh_vvPIwvHo8zemEPMcHR5E9_ol-_B6lmVlgh6tw/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2I2MGY1YjE5/LWMwYzgtNDhhNi1i/MTU1LWE2MzIyOGY0/NTFmNg" 
                 alt="Logo Dapen Jasa Marga" 
                 className="w-full h-full object-contain"
                 onError={(e) => {
@@ -83,9 +83,9 @@ export const Header: React.FC<HeaderProps> = ({ onLoginClick }) => {
                 }}
               />
             </div>
-            <div className={`font-bold text-xl tracking-tight leading-none ${isScrolled ? 'text-corporate-900' : 'text-white'}`}>
-              DAPEN<br/>
-              <span className="text-sm font-medium text-accent-500">JASA MARGA</span>
+            <div className={`flex flex-col justify-center ${isScrolled ? 'text-corporate-900' : 'text-white'}`}>
+              <span className="font-bold text-sm md:text-lg tracking-tight leading-none">Dana Pensiun Jasa Marga</span>
+              <span className="text-[10px] md:text-xs font-medium text-accent-500 tracking-wide mt-0.5 uppercase">Sehat, Sejahtera, Bahagia</span>
             </div>
           </a>
 

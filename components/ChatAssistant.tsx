@@ -18,7 +18,16 @@ export const ChatAssistant: React.FC = () => {
   useEffect(() => {
     if (isOpen && !chatSession) {
       const session = createChatSession();
-      setChatSession(session);
+      if (session) {
+        setChatSession(session);
+      } else {
+        // Handle case where session creation failed (e.g. missing API Key)
+        setMessages(prev => [...prev, { 
+          role: 'model', 
+          text: 'Mohon maaf, fitur chat sedang dalam pemeliharaan sistem (API Key Configuration). Anda tetap dapat menghubungi kami melalui kontak yang tersedia.', 
+          timestamp: new Date() 
+        }]);
+      }
     }
   }, [isOpen, chatSession]);
 
@@ -28,7 +37,7 @@ export const ChatAssistant: React.FC = () => {
   }, [messages]);
 
   const handleSend = async () => {
-    if (!inputText.trim() || !chatSession) return;
+    if (!inputText.trim()) return;
 
     const userMessage = inputText;
     setInputText('');
@@ -37,7 +46,7 @@ export const ChatAssistant: React.FC = () => {
     setMessages(prev => [...prev, { role: 'user', text: userMessage, timestamp: new Date() }]);
     setIsLoading(true);
 
-    // Get AI Response
+    // Get AI Response (Handles null chatSession inside the service)
     const responseText = await sendMessageToGemini(chatSession, userMessage);
     
     setMessages(prev => [...prev, { role: 'model', text: responseText, timestamp: new Date() }]);
@@ -77,8 +86,8 @@ export const ChatAssistant: React.FC = () => {
               <div>
                 <h3 className="font-bold text-sm">Dapen Assistant</h3>
                 <p className="text-xs text-corporate-200 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                  Online
+                  <span className={`w-1.5 h-1.5 rounded-full ${chatSession ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`}></span>
+                  {chatSession ? 'Online' : 'Offline'}
                 </p>
               </div>
             </div>
@@ -132,14 +141,15 @@ export const ChatAssistant: React.FC = () => {
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={handleKeyPress}
                 placeholder="Tulis pesan Anda..."
-                className="w-full bg-gray-100 text-gray-800 text-sm rounded-xl pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-corporate-500 resize-none h-12 max-h-24"
+                disabled={!chatSession}
+                className="w-full bg-gray-100 text-gray-800 text-sm rounded-xl pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-corporate-500 resize-none h-12 max-h-24 disabled:opacity-50 disabled:cursor-not-allowed"
                 rows={1}
               />
               <button
                 onClick={handleSend}
-                disabled={isLoading || !inputText.trim()}
+                disabled={isLoading || !inputText.trim() || !chatSession}
                 className={`absolute right-2 top-2 p-2 rounded-lg transition-colors ${
-                  inputText.trim() && !isLoading 
+                  inputText.trim() && !isLoading && chatSession
                     ? 'bg-corporate-900 text-white hover:bg-corporate-800' 
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 }`}

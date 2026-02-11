@@ -519,7 +519,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center p-1">
                  <img 
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Logo_Jasa_Marga.svg/800px-Logo_Jasa_Marga.svg.png" 
+                    src="https://img.playbook.com/O_-Jh_vvPIwvHo8zemEPMcHR5E9_ol-_B6lmVlgh6tw/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2I2MGY1YjE5/LWMwYzgtNDhhNi1i/MTU1LWE2MzIyOGY0/NTFmNg" 
                     alt="Logo" 
                     className="w-full h-full object-contain"
                   />
