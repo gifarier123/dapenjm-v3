@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Youtube, ExternalLink } from 'lucide-react';
+import { Facebook, Instagram, Youtube, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -28,16 +28,13 @@ export const Footer: React.FC = () => {
               Mitra terpercaya dalam mengelola masa depan sejahtera. Berkomitmen pada profesionalisme dan pelayanan prima untuk seluruh karyawan Jasa Marga.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent-600 hover:text-white transition-all">
+              <a href="https://www.instagram.com/dapen.jm/" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent-600 hover:text-white transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent-600 hover:text-white transition-all">
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent-600 hover:text-white transition-all">
+              <a href="https://www.facebook.com/profile.php?id=61585837003344" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent-600 hover:text-white transition-all">
                 <Facebook className="w-4 h-4" />
               </a>
-               <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent-600 hover:text-white transition-all">
+               <a href="https://www.youtube.com/@danapensiunjasamarga6343" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent-600 hover:text-white transition-all">
                 <Youtube className="w-4 h-4" />
               </a>
             </div>
@@ -60,8 +57,6 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-corporate-200">
               <li><a href="#" className="hover:text-accent-400 transition-colors flex items-center gap-2"><ExternalLink className="w-3 h-3" />Portal Peserta (e-Dapen)</a></li>
               <li><a href="#" className="hover:text-accent-400 transition-colors flex items-center gap-2"><ExternalLink className="w-3 h-3" />Pengkinian Data Online</a></li>
-              <li><a href="#" className="hover:text-accent-400 transition-colors flex items-center gap-2"><ExternalLink className="w-3 h-3" />Simulasi Manfaat</a></li>
-              <li><a href="#" className="hover:text-accent-400 transition-colors flex items-center gap-2"><ExternalLink className="w-3 h-3" />Unduh Formulir</a></li>
             </ul>
           </div>
 
@@ -70,14 +65,15 @@ export const Footer: React.FC = () => {
              <h4 className="font-bold text-lg mb-6 text-white border-b border-accent-500/30 pb-2 inline-block">Tautan Terkait</h4>
              <ul className="space-y-3 text-sm text-corporate-200">
               <li><a href="https://www.jasamarga.com" target="_blank" rel="noreferrer" className="hover:text-accent-400 transition-colors">PT Jasa Marga (Persero) Tbk</a></li>
-              <li><a href="https://ojk.go.id" target="_blank" rel="noreferrer" className="hover:text-accent-400 transition-colors">Otoritas Jasa Keuangan</a></li>
-              <li><a href="#" className="hover:text-accent-400 transition-colors">Asosiasi Dana Pensiun</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-corporate-400">
-          <p>&copy; {new Date().getFullYear()} Dana Pensiun Jasa Marga. All rights reserved.</p>
+          <div className="flex flex-col md:items-start items-center space-y-1">
+            <p>&copy; {new Date().getFullYear()} Dana Pensiun Jasa Marga. All rights reserved.</p>
+            <p className="text-xs opacity-75">Terdaftar dan Diawasi oleh Otoritas Jasa Keuangan</p>
+          </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">Kebijakan Privasi</a>
             <a href="#" className="hover:text-white transition-colors">Syarat & Ketentuan</a>

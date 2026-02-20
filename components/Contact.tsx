@@ -20,11 +20,9 @@ export const Contact: React.FC = () => {
                             <MapPin className="w-6 h-6" />
                         </div>
                         <div>
-                            <h4 className="font-bold text-corporate-900 text-lg mb-1">Kantor Pusat</h4>
+                            <h4 className="font-bold text-corporate-900 text-lg mb-1">Kantor Operasional</h4>
                             <p className="text-gray-600 text-sm leading-relaxed">
-                                Gedung Jasa Marga Lantai 1<br/>
-                                Jl. Dukuh No. 1, Kramat Jati<br/>
-                                Jakarta Timur, DKI Jakarta 13550
+                                Jl. Bambu Apus Raya No.22A, RT.3/RW.3, Bambu Apus, Kec. Cipayung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13890
                             </p>
                         </div>
                     </div>
@@ -34,10 +32,9 @@ export const Contact: React.FC = () => {
                             <Phone className="w-6 h-6" />
                         </div>
                         <div>
-                            <h4 className="font-bold text-corporate-900 text-lg mb-1">Telepon & Fax</h4>
+                            <h4 className="font-bold text-corporate-900 text-lg mb-1">Telepon</h4>
                             <p className="text-gray-600 text-sm">
-                                Telp: (021) 8088 1234 (Hunting)<br/>
-                                Fax: (021) 8088 5678
+                                Telp: (021) 8471043
                             </p>
                         </div>
                     </div>
