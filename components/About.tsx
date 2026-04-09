@@ -128,6 +128,84 @@ export const About: React.FC = () => {
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent-500 rounded-full blur-[120px] opacity-10"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-[120px] opacity-10"></div>
         </div>
+
+        {/* Struktur Organisasi */}
+        <div className="mt-24 relative rounded-3xl overflow-hidden shadow-2xl">
+          {/* Background Gradient & Wave Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#00A651] to-[#0054A6]"></div>
+          <div 
+            className="absolute inset-0 opacity-20" 
+            style={{ 
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='white' stroke-width='2' d='M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,90.7C960,85,1056,139,1152,154.7C1248,171,1344,149,1392,138.7L1440,128'/%3E%3Cpath fill='none' stroke='white' stroke-width='2' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,208C1248,192,1344,192,1392,192L1440,192'/%3E%3C/svg%3E")`, 
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          ></div>
+          
+          <div className="relative z-10 p-8 md:p-16 text-white text-center">
+            <h3 className="text-3xl md:text-4xl font-bold mb-16">Struktur Organisasi</h3>
+            
+            {/* Dewan Pengawas */}
+            <div className="mb-20">
+              <h4 className="text-2xl font-semibold mb-10 border-b border-white/30 pb-4 inline-block">Dewan Pengawas Dana Pensiun Jasa Marga</h4>
+              <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+                {[
+                  { name: "Ricky Ricardo S.B.", role: "Ketua Dewan Pengawas" },
+                  { name: "Windharti Amelia", role: "Anggota Dewan Pengawas" },
+                  { name: "Ari Wibowo", role: "Anggota Dewan Pengawas" },
+                  { name: "Sari Purnawarman", role: "Anggota Dewan Pengawas" }
+                ].map((member, idx) => (
+                  <div key={idx} className="flex flex-col items-center w-48 group">
+                    <div className="w-32 h-32 rounded-full border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-300">
+                      <img 
+                        src={`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0f7ff&color=0e3d6b&size=200`} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover" 
+                      />
+                    </div>
+                    <h5 className="font-bold text-lg leading-tight mb-1">{member.name}</h5>
+                    <p className="text-sm text-white/80">{member.role}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Pengurus */}
+            <div>
+              <h4 className="text-2xl font-semibold mb-10 border-b border-white/30 pb-4 inline-block">Pengurus Dana Pensiun Jasa Marga</h4>
+              <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+                {[
+                  { name: null, role: null },
+                  { name: "Abdul Hamid", role: "Direktur" }
+                ].map((member, idx) => (
+                  <div key={idx} className="flex flex-col items-center w-48 group">
+                    {member.name ? (
+                      <>
+                        <div className="w-32 h-32 rounded-full border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-300">
+                          <img 
+                            src={`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0f7ff&color=0e3d6b&size=200`} 
+                            alt={member.name} 
+                            className="w-full h-full object-cover" 
+                          />
+                        </div>
+                        <h5 className="font-bold text-lg leading-tight mb-1">{member.name}</h5>
+                        <p className="text-sm text-white/80">{member.role}</p>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-32 h-32 rounded-full border-4 border-dashed border-white/30 bg-white/10 mb-5 flex items-center justify-center">
+                          <span className="text-white/50 text-xs text-center px-2">Posisi Kosong</span>
+                        </div>
+                        <h5 className="font-bold text-lg leading-tight mb-1 text-white/50">-</h5>
+                        <p className="text-sm text-white/40">-</p>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

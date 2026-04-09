@@ -5,6 +5,7 @@ import { About } from './components/About';
 import { Services } from './components/Services';
 import { Gallery } from './components/Gallery';
 import { News, newsItems } from './components/News';
+import { Files } from './components/Files';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ChatAssistant } from './components/ChatAssistant';
@@ -94,6 +95,7 @@ const App: React.FC = () => {
         <Services />
         <Gallery />
         <News onNewsClick={handleNewsClick} />
+        <Files />
         <Contact />
       </main>
       <Footer />
