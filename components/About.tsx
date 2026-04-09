@@ -150,15 +150,15 @@ export const About: React.FC = () => {
               <h4 className="text-2xl font-semibold mb-10 border-b border-white/30 pb-4 inline-block">Dewan Pengawas Dana Pensiun Jasa Marga</h4>
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {[
-                  { name: "Ricky Ricardo S.B.", role: "Ketua Dewan Pengawas" },
-                  { name: "Windharti Amelia", role: "Anggota Dewan Pengawas" },
-                  { name: "Ari Wibowo", role: "Anggota Dewan Pengawas" },
-                  { name: "Sari Purnawarman", role: "Anggota Dewan Pengawas" }
+                  { name: "Ricky Ricardo S.B.", role: "Ketua Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/RICKY%20RICARDO.png" },
+                  { name: "Windharti Amelia", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WINDHARTI%20AMELIA.png" },
+                  { name: "Ari Wibowo", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/ARI%20WIBOWO.png" },
+                  { name: "Sari Purnawarman", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SARI%20PURNAWARMAN.png" }
                 ].map((member, idx) => (
                   <div key={idx} className="flex flex-col items-center w-48 group">
-                    <div className="w-32 h-32 rounded-full border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-300">
                       <img 
-                        src={`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0f7ff&color=0e3d6b&size=200`} 
+                        src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0f7ff&color=0e3d6b&size=200`} 
                         alt={member.name} 
                         className="w-full h-full object-cover" 
                       />
@@ -176,14 +176,14 @@ export const About: React.FC = () => {
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {[
                   { name: null, role: null },
-                  { name: "Abdul Hamid", role: "Direktur" }
+                  { name: "Abdul Hamid", role: "Direktur", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/ABDUL%20HAMID.png" }
                 ].map((member, idx) => (
                   <div key={idx} className="flex flex-col items-center w-48 group">
                     {member.name ? (
                       <>
-                        <div className="w-32 h-32 rounded-full border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-300">
+                        <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-300">
                           <img 
-                            src={`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0f7ff&color=0e3d6b&size=200`} 
+                            src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0f7ff&color=0e3d6b&size=200`} 
                             alt={member.name} 
                             className="w-full h-full object-cover" 
                           />
@@ -193,11 +193,11 @@ export const About: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        <div className="w-32 h-32 rounded-full border-4 border-dashed border-white/30 bg-white/10 mb-5 flex items-center justify-center">
+                        <div className="w-32 h-40 rounded-2xl border-4 border-dashed border-white/30 bg-white/10 mb-5 flex items-center justify-center">
                           <span className="text-white/50 text-xs text-center px-2">Posisi Kosong</span>
                         </div>
-                        <h5 className="font-bold text-lg leading-tight mb-1 text-white/50">-</h5>
-                        <p className="text-sm text-white/40">-</p>
+                        <h5 className="font-bold text-lg leading-tight mb-1 text-white">-</h5>
+                        <p className="text-sm text-white/80">Direktur Utama</p>
                       </>
                     )}
                   </div>
