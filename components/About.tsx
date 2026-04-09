@@ -19,9 +19,12 @@ export const About: React.FC = () => {
           {/* Image */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full min-h-[400px]">
             <img 
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" 
-              alt="Team Meeting" 
+              src="https://img.playbook.com/x-1oYRbnwLKtBmI1eZdjDH_gCx90ufjHzbDMCiNFddY/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzBhYjMzZjA1/LWU4NzMtNDM3NC05/YTgxLTc2M2VlMjg2/ZWZlZA" 
+              alt="Gedung Kantor Operasional Jasa Marga" 
               className="absolute inset-0 w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop';
+              }}
             />
             <div className="absolute inset-0 bg-corporate-900/60 flex items-center justify-center p-8">
                <div className="text-white text-center">

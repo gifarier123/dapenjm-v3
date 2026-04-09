@@ -1,6 +1,6 @@
 import React from 'react';
 import { GalleryItem } from '../types';
-import { Camera } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
@@ -53,7 +53,13 @@ export const Gallery: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryItems.map((item) => (
-            <div key={item.id} className="group relative rounded-xl overflow-hidden cursor-pointer h-72">
+            <a 
+              key={item.id} 
+              href="https://www.instagram.com/dapen.jm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative rounded-xl overflow-hidden cursor-pointer h-72 block"
+            >
               <img 
                 src={item.imageUrl} 
                 alt={item.caption} 
@@ -68,16 +74,22 @@ export const Gallery: React.FC = () => {
                 </p>
               </div>
               <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                  <Camera className="w-5 h-5 text-white" />
+                  <Instagram className="w-5 h-5 text-white" />
               </div>
-            </div>
+            </a>
           ))}
         </div>
         
         <div className="text-center mt-12">
-            <button className="text-corporate-900 font-bold border-b-2 border-accent-500 pb-1 hover:text-accent-600 transition-colors">
-                Lihat Seluruh Galeri
-            </button>
+            <a 
+              href="https://www.instagram.com/dapen.jm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-corporate-900 font-bold border-b-2 border-accent-500 pb-1 hover:text-accent-600 transition-colors"
+            >
+                <Instagram className="w-4 h-4" />
+                Lihat di Instagram
+            </a>
         </div>
       </div>
     </section>

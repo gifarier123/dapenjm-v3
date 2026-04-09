@@ -79,21 +79,18 @@ export const Services: React.FC = () => {
         <div className="bg-gradient-to-r from-corporate-800 to-corporate-900 rounded-2xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between shadow-2xl">
            <div className="flex-1 pr-0 md:pr-12 mb-8 md:mb-0">
              <div className="flex items-center gap-3 mb-4">
-                <FileCheck className="w-8 h-8 text-accent-400" />
-                <h4 className="text-2xl font-bold">Pengajuan Klaim Online</h4>
+                <PhoneCall className="w-8 h-8 text-accent-400" />
+                <h4 className="text-2xl font-bold">Ada Pertanyaan?</h4>
              </div>
              <p className="text-corporate-100 leading-relaxed">
-                Kini pengajuan manfaat pensiun dapat dilakukan secara digital melalui portal kepesertaan. Lebih cepat, transparan, dan dapat dipantau statusnya secara real-time.
+                Jika Anda memiliki pertanyaan mengenai manfaat pensiun, prosedur klaim, atau informasi lainnya, tim Customer Service kami siap membantu Anda.
              </p>
            </div>
            <div className="flex-shrink-0 flex gap-4">
-              <button className="bg-white text-corporate-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
-                 Panduan Klaim
-              </button>
-              <button className="bg-accent-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-accent-700 transition-colors shadow-lg flex items-center gap-2">
+              <a href="#contact" className="bg-accent-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-accent-700 transition-colors shadow-lg flex items-center gap-2">
                  <PhoneCall className="w-4 h-4" />
                  Hubungi CS
-              </button>
+              </a>
            </div>
         </div>
       </div>
