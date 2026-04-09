@@ -72,20 +72,20 @@ export const Hero: React.FC = () => {
 
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-10 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
             <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1">1983</span>
-              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Tahun Berdiri</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1">4.000+</span>
-              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta</span>
-            </div>
-            <div className="flex flex-col">
               <span className="text-4xl font-bold text-white mb-1">100%</span>
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Komitmen Layanan</span>
             </div>
-             <div className="hidden md:flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1">PPMP</span>
-              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Program Manfaat</span>
+            <div className="flex flex-col">
+              <span className="text-4xl font-bold text-white mb-1">4.207</span>
+              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-4xl font-bold text-white mb-1">1.306</span>
+              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta Aktif</span>
+            </div>
+             <div className="flex flex-col">
+              <span className="text-4xl font-bold text-white mb-1">2.901</span>
+              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta Pasif</span>
             </div>
           </div>
         </div>
