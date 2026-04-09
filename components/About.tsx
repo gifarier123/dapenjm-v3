@@ -155,8 +155,8 @@ export const About: React.FC = () => {
                   { name: "Ari Wibowo", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/ARI%20WIBOWO.png" },
                   { name: "Sari Purnawarman", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SARI%20PURNAWARMAN.png" }
                 ].map((member, idx) => (
-                  <div key={idx} className="flex flex-col items-center w-48 group">
-                    <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-300">
+                  <div key={idx} className="flex flex-col items-center w-48 group relative z-0 hover:z-50">
+                    <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-150 transition-transform duration-300 origin-bottom">
                       <img 
                         src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0f7ff&color=0e3d6b&size=200`} 
                         alt={member.name} 
@@ -178,10 +178,10 @@ export const About: React.FC = () => {
                   { name: null, role: null },
                   { name: "Abdul Hamid", role: "Direktur", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/ABDUL%20HAMID.png" }
                 ].map((member, idx) => (
-                  <div key={idx} className="flex flex-col items-center w-48 group">
+                  <div key={idx} className="flex flex-col items-center w-48 group relative z-0 hover:z-50">
                     {member.name ? (
                       <>
-                        <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-300">
+                        <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-150 transition-transform duration-300 origin-bottom">
                           <img 
                             src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0f7ff&color=0e3d6b&size=200`} 
                             alt={member.name} 
