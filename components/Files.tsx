@@ -3,10 +3,8 @@ import { FileText, Download } from 'lucide-react';
 
 export const Files: React.FC = () => {
   const files = [
-    { id: 1, name: 'Laporan Pendiri 2025', date: 'Desember 2025', size: '2.4 MB' },
-    { id: 2, name: 'Laporan Tahunan 2025', date: 'Desember 2025', size: '5.1 MB' },
-    { id: 3, name: 'Laporan bulanan Januari 2026', date: 'Januari 2026', size: '1.2 MB' },
-    { id: 4, name: 'Laporan bulanan Februari 2026', date: 'Februari 2026', size: '1.1 MB' },
+    { id: 1, name: 'Annual Report 2025', date: 'Desember 2025', size: '2.4 MB' },
+    { id: 2, name: 'Laporan Keuangan 2025', date: 'Desember 2025', size: '5.1 MB' },
   ];
 
   return (

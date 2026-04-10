@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-corporate-400">
           <div className="flex flex-col md:items-start items-center space-y-1">
             <p>&copy; {new Date().getFullYear()} Dana Pensiun Jasa Marga. All rights reserved.</p>
-            <p className="text-xs opacity-75">Terdaftar dan Diawasi oleh Otoritas Jasa Keuangan</p>
+            <p className="text-xs opacity-75">Terdaftar dan Diawasi oleh Otoritas Jasa Kuangan dan LAPS SJK</p>
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">Kebijakan Privasi</a>
