@@ -3,8 +3,20 @@ import { FileText, Download } from 'lucide-react';
 
 export const Files: React.FC = () => {
   const files = [
-    { id: 1, name: 'Annual Report 2025', date: 'Desember 2025', size: '2.4 MB' },
-    { id: 2, name: 'Laporan Keuangan 2025', date: 'Desember 2025', size: '5.1 MB' },
+    { 
+      id: 1, 
+      name: 'Annual Report 2025', 
+      date: 'Desember 2025', 
+      size: '2.4 MB',
+      imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=300&auto=format&fit=crop'
+    },
+    { 
+      id: 2, 
+      name: 'Laporan Keuangan 2025', 
+      date: 'Desember 2025', 
+      size: '5.1 MB',
+      imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=300&auto=format&fit=crop'
+    },
   ];
 
   return (
@@ -16,26 +28,26 @@ export const Files: React.FC = () => {
           <div className="w-20 h-1 bg-accent-500 mx-auto rounded-full"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          <ul className="divide-y divide-gray-100">
-            {files.map((file) => (
-              <li key={file.id} className="p-6 hover:bg-corporate-50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 group">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-corporate-100 text-corporate-900 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-corporate-900 group-hover:text-white transition-colors">
-                    <FileText className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-corporate-900 text-lg mb-1">{file.name}</h4>
-                    <p className="text-sm text-gray-500">{file.date} &bull; PDF &bull; {file.size}</p>
-                  </div>
-                </div>
-                <button className="flex items-center justify-center gap-2 bg-white border border-gray-200 text-corporate-900 px-6 py-2.5 rounded-lg font-semibold hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all shadow-sm">
-                  <Download className="w-4 h-4" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {files.map((file) => (
+            <div key={file.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col group hover:shadow-md transition-shadow">
+              <div className="relative w-full h-56 rounded-xl overflow-hidden mb-6 shadow-sm z-0 hover:z-50 transform hover:scale-150 transition-transform duration-500 origin-center cursor-pointer">
+                <img 
+                  src={file.imageUrl} 
+                  alt={file.name} 
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+              <div className="flex flex-col flex-grow">
+                <h4 className="font-bold text-corporate-900 text-xl mb-2">{file.name}</h4>
+                <p className="text-sm text-gray-500 mb-6">{file.date} &bull; PDF &bull; {file.size}</p>
+                <button className="mt-auto flex items-center justify-center gap-2 bg-white border border-gray-200 text-corporate-900 px-6 py-3 rounded-lg font-semibold hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all shadow-sm w-full">
+                  <Download className="w-5 h-5" />
                   <span>Unduh</span>
                 </button>
-              </li>
-            ))}
-          </ul>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
