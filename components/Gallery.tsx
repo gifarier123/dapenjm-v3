@@ -11,9 +11,16 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 2,
-    imageUrl: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop",
-    caption: "Sosialisasi Program Pensiun ke Cabang",
-    category: "Sosialisasi"
+    imageUrl: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.39.jpeg",
+    caption: "Kajian Switching instrumen investasi pada portofolio BHR dan MP",
+    category: "Sosialisasi",
+    images: [
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.39.jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.41%20(2).jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.41.jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.39%20(1).jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.37.jpeg"
+    ]
   },
   {
     id: 3,
@@ -41,9 +48,14 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 6,
-    imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
+    imageUrl: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-15%20at%2012.18.19.jpeg",
     caption: "Kegiatan Olahraga Bersama",
-    category: "Kegiatan"
+    category: "Kegiatan",
+    images: [
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-15%20at%2012.18.19.jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-15%20at%2012.18.21.jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-15%20at%2012.18.24.jpeg"
+    ]
   }
 ];
 
@@ -102,7 +114,7 @@ export const Gallery: React.FC = () => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 transition-all duration-300 group-hover:from-corporate-900/90 group-hover:via-corporate-900/50">
-                <span className="text-accent-400 text-sm font-bold uppercase tracking-wider mb-2 drop-shadow-md">
+                <span className="text-white text-sm font-bold uppercase tracking-wider mb-2 drop-shadow-md">
                     {item.category}
                 </span>
                 <p className="text-white font-bold text-xl leading-tight drop-shadow-lg">
