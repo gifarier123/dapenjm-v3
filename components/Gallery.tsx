@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GalleryItem } from '../types';
-import { Instagram } from 'lucide-react';
+import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
@@ -29,9 +29,15 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 5,
-    imageUrl: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop",
-    caption: "Forum Komunikasi Pensiunan",
-    category: "Sosialisasi"
+    imageUrl: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.43.59%20(1).jpeg",
+    caption: "Benchmark ke Dana Pensiun Pegadaian",
+    category: "Sosialisasi External",
+    images: [
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.43.59%20(1).jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.43.59.jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.44.00%20(2).jpeg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.44.01%20(1).jpeg"
+    ]
   },
   {
     id: 6,
@@ -42,6 +48,35 @@ const galleryItems: GalleryItem[] = [
 ];
 
 export const Gallery: React.FC = () => {
+  const [selectedGallery, setSelectedGallery] = useState<GalleryItem | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openLightbox = (e: React.MouseEvent, item: GalleryItem) => {
+    if (item.images && item.images.length > 0) {
+      e.preventDefault();
+      setSelectedGallery(item);
+      setCurrentImageIndex(0);
+    }
+  };
+
+  const closeLightbox = () => {
+    setSelectedGallery(null);
+  };
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedGallery && selectedGallery.images) {
+      setCurrentImageIndex((prev) => (prev + 1) % selectedGallery.images!.length);
+    }
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedGallery && selectedGallery.images) {
+      setCurrentImageIndex((prev) => (prev - 1 + selectedGallery.images!.length) % selectedGallery.images!.length);
+    }
+  };
+
   return (
     <section id="gallery" className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -55,9 +90,10 @@ export const Gallery: React.FC = () => {
           {galleryItems.map((item) => (
             <a 
               key={item.id} 
-              href="https://www.instagram.com/dapen.jm/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={item.images ? "#" : "https://www.instagram.com/dapen.jm/"}
+              target={item.images ? "_self" : "_blank"}
+              rel={item.images ? "" : "noopener noreferrer"}
+              onClick={(e) => openLightbox(e, item)}
               className="group relative rounded-xl overflow-hidden cursor-pointer h-72 block"
             >
               <img 
@@ -65,16 +101,16 @@ export const Gallery: React.FC = () => {
                 alt={item.caption} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-corporate-900/90 via-corporate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <span className="text-accent-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 transition-all duration-300 group-hover:from-corporate-900/90 group-hover:via-corporate-900/50">
+                <span className="text-accent-400 text-sm font-bold uppercase tracking-wider mb-2 drop-shadow-md">
                     {item.category}
                 </span>
-                <p className="text-white font-semibold text-lg leading-tight">
+                <p className="text-white font-bold text-xl leading-tight drop-shadow-lg">
                   {item.caption}
                 </p>
               </div>
               <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                  <Instagram className="w-5 h-5 text-white" />
+                  {item.images ? <Images className="w-5 h-5 text-white" /> : <Instagram className="w-5 h-5 text-white" />}
               </div>
             </a>
           ))}
@@ -92,6 +128,52 @@ export const Gallery: React.FC = () => {
             </a>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedGallery && selectedGallery.images && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-8" onClick={closeLightbox}>
+          <button 
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors z-50"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          
+          <div className="relative w-full max-w-5xl max-h-[80vh] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            {selectedGallery.images.length > 1 && (
+              <button 
+                onClick={prevImage}
+                className="absolute left-4 md:-left-12 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/50 hover:bg-black/80 rounded-full p-3 transition-colors z-50"
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
+            )}
+            
+            <div className="relative w-full h-full flex flex-col items-center">
+              <img 
+                src={selectedGallery.images[currentImageIndex]} 
+                alt={`${selectedGallery.caption} - Image ${currentImageIndex + 1}`} 
+                className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
+              />
+              <div className="mt-6 text-center">
+                <h4 className="text-white text-xl font-bold mb-2">{selectedGallery.caption}</h4>
+                <p className="text-white/60 text-sm">
+                  {currentImageIndex + 1} / {selectedGallery.images.length}
+                </p>
+              </div>
+            </div>
+
+            {selectedGallery.images.length > 1 && (
+              <button 
+                onClick={nextImage}
+                className="absolute right-4 md:-right-12 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/50 hover:bg-black/80 rounded-full p-3 transition-colors z-50"
+              >
+                <ChevronRight className="w-8 h-8" />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

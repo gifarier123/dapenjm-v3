@@ -36,7 +36,8 @@ export interface GalleryItem {
   id: number;
   imageUrl: string;
   caption: string;
-  category: 'Kegiatan' | 'Fasilitas' | 'Sosialisasi';
+  category: string;
+  images?: string[];
 }
 
 export interface User {

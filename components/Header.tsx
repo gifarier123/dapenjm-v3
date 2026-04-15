@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ onLoginClick, onNavigateHome }) 
       setIsScrolled(window.scrollY > 20);
 
       // Simple spy to detect active section
-      const sections = ['home', 'about', 'services', 'gallery', 'news', 'files', 'contact'];
+      const sections = ['home', 'about', 'services', 'gallery', 'news', 'files', 'portfolio', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -40,6 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ onLoginClick, onNavigateHome }) 
     { name: 'Galeri', href: '#gallery', id: 'gallery' },
     { name: 'Berita', href: '#news', id: 'news' },
     { name: 'File', href: '#files', id: 'files' },
+    { name: 'Portofolio', href: '#portfolio', id: 'portfolio' },
     { name: 'Kontak', href: '#contact', id: 'contact' },
   ];
 
