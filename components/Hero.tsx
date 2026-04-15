@@ -43,10 +43,10 @@ export const Hero: React.FC = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
-            Mewujudkan Masa Depan <br/>
-            {/* Changed from gradient to solid white as requested */}
+            Mewujudkan <br/>
+            Masa Depan <br/>
             <span className="text-white">
-              Sejahtera & Bahagia
+              sejahtera & Bahagia
             </span>
           </h1>
           
