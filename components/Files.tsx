@@ -69,6 +69,7 @@ export const Files: React.FC = () => {
                 <p className="text-sm text-gray-500 mb-6">{file.date} &bull; {file.size}</p>
                 <a 
                   href={file.downloadUrl}
+                  download={`${file.name}.pdf`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-auto flex items-center justify-center gap-2 bg-white border border-gray-200 text-corporate-900 px-6 py-3 rounded-lg font-semibold hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all shadow-sm w-full"
