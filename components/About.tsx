@@ -164,7 +164,7 @@ export const About: React.FC = () => {
                       />
                     </div>
                     <h5 className="font-bold text-lg leading-tight mb-1">{member.name}</h5>
-                    <p className="text-sm text-white/80">{member.role}</p>
+                    <p className="text-sm text-white/80 whitespace-pre-line">{member.role}</p>
                   </div>
                 ))}
               </div>
@@ -175,7 +175,7 @@ export const About: React.FC = () => {
               <h4 className="text-2xl font-semibold mb-10 border-b border-white/30 pb-4 inline-block">Pengurus Dana Pensiun Jasa Marga</h4>
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {[
-                  { name: "Abdul Hamid", role: "Direktur", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/2.png" }
+                  { name: "Abdul Hamid", role: "Direktur\nmerangkap\nPgs. Direktur Utama", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/2.png" }
                 ].map((member, idx) => (
                   <div key={idx} className="flex flex-col items-center w-48 group relative z-0 hover:z-50">
                     <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-150 transition-transform duration-300 origin-bottom">
@@ -186,7 +186,7 @@ export const About: React.FC = () => {
                       />
                     </div>
                     <h5 className="font-bold text-lg leading-tight mb-1">{member.name}</h5>
-                    <p className="text-sm text-white/80">{member.role}</p>
+                    <p className="text-sm text-white/80 whitespace-pre-line">{member.role}</p>
                   </div>
                 ))}
               </div>
