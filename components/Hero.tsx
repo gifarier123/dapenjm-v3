@@ -73,7 +73,7 @@ export const Hero: React.FC = () => {
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-10 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
             <div className="flex flex-col">
               <span className="text-4xl font-bold text-white mb-1">100%</span>
-              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Komitmen Layanan</span>
+              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Pendataan Ulang</span>
             </div>
             <div className="flex flex-col">
               <span className="text-4xl font-bold text-white mb-1">4.207</span>

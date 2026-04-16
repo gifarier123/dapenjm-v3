@@ -150,10 +150,10 @@ export const About: React.FC = () => {
               <h4 className="text-2xl font-semibold mb-10 border-b border-white/30 pb-4 inline-block">Dewan Pengawas Dana Pensiun Jasa Marga</h4>
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {[
-                  { name: "Ricky Ricardo S.B.", role: "Ketua Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/RICKY%20RICARDO.png" },
-                  { name: "Windharti Amelia", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WINDHARTI%20AMELIA.png" },
-                  { name: "Ari Wibowo", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/ARI%20WIBOWO.png" },
-                  { name: "Sari Purnawarman", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SARI%20PURNAWARMAN.png" }
+                  { name: "Ricky Ricardo S.B.", role: "Ketua Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/1.png" },
+                  { name: "Windharti Amelia", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/5.png" },
+                  { name: "Ari Wibowo", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/3.png" },
+                  { name: "Sari Purnawarman", role: "Anggota Dewan Pengawas", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/4.png" }
                 ].map((member, idx) => (
                   <div key={idx} className="flex flex-col items-center w-48 group relative z-0 hover:z-50">
                     <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-150 transition-transform duration-300 origin-bottom">
@@ -175,7 +175,7 @@ export const About: React.FC = () => {
               <h4 className="text-2xl font-semibold mb-10 border-b border-white/30 pb-4 inline-block">Pengurus Dana Pensiun Jasa Marga</h4>
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {[
-                  { name: "Abdul Hamid", role: "Direktur", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/ABDUL%20HAMID.png" }
+                  { name: "Abdul Hamid", role: "Direktur", image: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/2.png" }
                 ].map((member, idx) => (
                   <div key={idx} className="flex flex-col items-center w-48 group relative z-0 hover:z-50">
                     <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-150 transition-transform duration-300 origin-bottom">
@@ -192,6 +192,13 @@ export const About: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Quote Section */}
+        <div className="mt-16 text-center max-w-4xl mx-auto">
+          <p className="text-3xl md:text-5xl font-extrabold text-corporate-900 italic opacity-90 drop-shadow-sm font-serif">
+            "Melayani Sepenuh Hati"
+          </p>
         </div>
       </div>
     </section>
