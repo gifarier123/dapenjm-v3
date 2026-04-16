@@ -24,9 +24,16 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 3,
-    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-    caption: "Pelatihan Persiapan Masa Purnabakti",
-    category: "Kegiatan"
+    imageUrl: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(1).jpg",
+    caption: "Purnabakti kepada Karyawan Jasa Marga Batch 46.",
+    category: "Kegiatan",
+    images: [
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(1).jpg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(2).jpg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(3).jpg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(4).jpg",
+      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(5).jpg"
+    ]
   },
   {
     id: 4,
