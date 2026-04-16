@@ -1,5 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
+
+const AnimatedCounter: React.FC<{ end: number; duration?: number; suffix?: string }> = ({ end, duration = 3000, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / duration, 1);
+      
+      const easeProgress = percentage === 1 ? 1 : 1 - Math.pow(2, -10 * percentage);
+      
+      setCount(Math.floor(end * easeProgress));
+
+      if (progress < duration) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, duration]);
+
+  return <>{count.toLocaleString('id-ID')}{suffix}</>;
+};
 
 export const Hero: React.FC = () => {
   return (
@@ -72,19 +102,19 @@ export const Hero: React.FC = () => {
 
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-10 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
             <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1">100%</span>
+              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={100} suffix="%" /></span>
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Pendataan Ulang</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1">4.207</span>
+              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={4207} /></span>
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1">1.306</span>
+              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={1306} /></span>
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta Aktif</span>
             </div>
              <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1">2.901</span>
+              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={2901} /></span>
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta Pasif</span>
             </div>
           </div>
