@@ -1,48 +1,44 @@
 import React from 'react';
-import { FileText, Download } from 'lucide-react';
+import { FileText, Eye, Download } from 'lucide-react';
 
 export const Files: React.FC = () => {
   const files = [
     { 
       id: 1, 
+      name: 'Annual Report 2025', 
+      date: '2025', 
+      size: 'PDF',
+      imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=300&auto=format&fit=crop',
+      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202025%20(SAK).pdf',
+      allowDownload: false
+    },
+    { 
+      id: 2, 
       name: 'Annual Report 2024', 
       date: '2024', 
       size: 'PDF',
       imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: '#'
+      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202024%20(SAK).pdf',
+      allowDownload: false
     },
     { 
-      id: 2, 
+      id: 3, 
       name: 'Annual Report 2023', 
       date: '2023', 
       size: 'PDF',
       imageUrl: 'https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/Annual%20Report%202023.pdf'
+      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202023%20(SAK).pdf',
+      allowDownload: false
     },
     { 
-      id: 3, 
+      id: 4, 
       name: 'Laporan Keuangan 2025', 
       date: '2025', 
       size: 'PDF',
       imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202025%20(SAK).pdf'
-    },
-    { 
-      id: 4, 
-      name: 'Laporan Keuangan 2024', 
-      date: '2024', 
-      size: 'PDF',
-      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202023%20(SAK).pdf'
-    },
-    { 
-      id: 5, 
-      name: 'Laporan Keuangan 2023', 
-      date: '2023', 
-      size: 'PDF',
-      imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202023%20(SAK).pdf'
-    },
+      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LAPORAN%20KEUANGAN%20DPJM%202025.pdf',
+      allowDownload: true
+    }
   ];
 
   return (
@@ -67,16 +63,29 @@ export const Files: React.FC = () => {
               <div className="flex flex-col flex-grow">
                 <h4 className="font-bold text-corporate-900 text-xl mb-2">{file.name}</h4>
                 <p className="text-sm text-gray-500 mb-6">{file.date} &bull; {file.size}</p>
-                <a 
-                  href={file.downloadUrl}
-                  download={`${file.name}.pdf`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto flex items-center justify-center gap-2 bg-white border border-gray-200 text-corporate-900 px-6 py-3 rounded-lg font-semibold hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all shadow-sm w-full"
-                >
-                  <Download className="w-5 h-5" />
-                  <span>Unduh</span>
-                </a>
+                <div className="mt-auto flex flex-col gap-3">
+                  <a 
+                    href={file.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 bg-white border border-gray-200 text-corporate-900 px-6 py-3 rounded-lg font-semibold hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all shadow-sm w-full"
+                  >
+                    <Eye className="w-5 h-5" />
+                    <span>Lihat</span>
+                  </a>
+                  {file.allowDownload && (
+                    <a 
+                      href={file.downloadUrl}
+                      download={`${file.name}.pdf`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 bg-corporate-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-corporate-800 transition-all shadow-sm w-full"
+                    >
+                      <Download className="w-5 h-5" />
+                      <span>Unduh</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
