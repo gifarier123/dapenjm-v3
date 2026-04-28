@@ -8,8 +8,8 @@ export const Files: React.FC = () => {
       name: 'Annual Report 2025', 
       date: '2025', 
       size: 'PDF',
-      imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202025%20(SAK).pdf',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/Gemini_Generated_Image_1bhlk31bhlk31bhl.png?raw=true',
+      downloadUrl: 'https://drive.google.com/file/d/1Ow_zDUlkfIaqIQSb18UNAoUnheRXiLft/view?usp=drive_link',
       allowDownload: false
     },
     { 
@@ -17,8 +17,8 @@ export const Files: React.FC = () => {
       name: 'Annual Report 2024', 
       date: '2024', 
       size: 'PDF',
-      imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202024%20(SAK).pdf',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/Gemini_Generated_Image_yduvjryduvjryduv.png?raw=true',
+      downloadUrl: 'https://drive.google.com/file/d/1khRIei66kayppARuYLRq8WjO6CjBjgA3/view?usp=drive_link',
       allowDownload: false
     },
     { 
@@ -26,8 +26,8 @@ export const Files: React.FC = () => {
       name: 'Annual Report 2023', 
       date: '2023', 
       size: 'PDF',
-      imageUrl: 'https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LK%20DPJM%20Audited%202023%20(SAK).pdf',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/Gemini_Generated_Image_b27ib2b27ib2b27i.png?raw=true',
+      downloadUrl: 'https://drive.google.com/file/d/1PoRMZcOXnGaZLxmeOK89tXh6y7YxipFL/view?usp=drive_link',
       allowDownload: false
     },
     { 
@@ -35,8 +35,8 @@ export const Files: React.FC = () => {
       name: 'Laporan Keuangan 2025', 
       date: '2025', 
       size: 'PDF',
-      imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=300&auto=format&fit=crop',
-      downloadUrl: 'https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/LAPORAN%20KEUANGAN%20DPJM%202025.pdf',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/Gemini_Generated_Image_2vh0sp2vh0sp2vh0.png?raw=true',
+      downloadUrl: 'https://drive.google.com/file/d/1t-KmFCeS7K-xywBIKYiqfC5lb0uVoCJx/view?usp=drive_link',
       allowDownload: true
     }
   ];

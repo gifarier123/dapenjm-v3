@@ -11,57 +11,66 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: 2,
-    imageUrl: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.39.jpeg",
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(1).jpeg?raw=true",
     caption: "Kajian Switching instrumen investasi pada portofolio BHR dan MP",
     category: "Sosialisasi",
     images: [
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.39.jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.41%20(2).jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.41.jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.39%20(1).jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-02%20at%2014.43.37.jpeg"
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(4).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(5).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(6).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(7).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/kajian%20switching%20investasi%20(8).jpeg?raw=true"
     ]
   },
   {
     id: 3,
-    imageUrl: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(1).jpg",
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/SOSIALISASI%20PENSIUNAN%20%20(1).jpg?raw=true",
     caption: "Purnabakti kepada Karyawan Jasa Marga Batch 46.",
     category: "Kegiatan",
     images: [
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(1).jpg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(2).jpg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(3).jpg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(4).jpg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/SOSIALISASI%20PENSIUNAN%20%20(5).jpg"
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/SOSIALISASI%20PENSIUNAN%20%20(1).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/SOSIALISASI%20PENSIUNAN%20%20(2).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/SOSIALISASI%20PENSIUNAN%20%20(3).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/SOSIALISASI%20PENSIUNAN%20%20(4).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/SOSIALISASI%20PENSIUNAN%20%20(5).jpg?raw=true"
     ]
   },
   {
     id: 4,
-    imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-    caption: "Gedung Kantor Pusat Dana Pensiun",
-    category: "Fasilitas"
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/pelatihan%20ai%20dan%20manajemen%20data%20(1).jpeg?raw=true",
+    caption: "Fasilitas dan kegiatan internal dalam kantor",
+    category: "Kegiatan internal",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/pelatihan%20ai%20dan%20manajemen%20data%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/pelatihan%20ai%20dan%20manajemen%20data%20(11).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/pelatihan%20ai%20dan%20manajemen%20data%20(6).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/pelatihan%20ai%20dan%20manajemen%20data%20(9).jpeg?raw=true"
+    ]
   },
   {
     id: 5,
-    imageUrl: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.43.59%20(1).jpeg",
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/bencmark%20dapen%20pagadaian%20(1).jpeg?raw=true",
     caption: "Benchmark ke Dana Pensiun Pegadaian",
     category: "Sosialisasi External",
     images: [
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.43.59%20(1).jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.43.59.jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.44.00%20(2).jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-02-05%20at%2013.44.01%20(1).jpeg"
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/bencmark%20dapen%20pagadaian%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/bencmark%20dapen%20pagadaian%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/bencmark%20dapen%20pagadaian%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/bencmark%20dapen%20pagadaian%20(4).jpeg?raw=true"
     ]
   },
   {
     id: 6,
-    imageUrl: "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-15%20at%2012.18.19.jpeg",
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(1).jpeg?raw=true",
     caption: "Kegiatan Olahraga Bersama",
     category: "Kegiatan",
     images: [
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-15%20at%2012.18.19.jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-15%20at%2012.18.21.jpeg",
-      "https://pub-4310e93c45c1439a9ecb5bd9133f74ea.r2.dev/WhatsApp%20Image%202026-04-15%20at%2012.18.24.jpeg"
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(3).jpeg?raw=true"
     ]
   }
 ];
