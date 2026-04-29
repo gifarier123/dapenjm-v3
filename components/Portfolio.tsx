@@ -26,24 +26,6 @@ const portfolioItems: PortfolioItem[] = [
     title: "Pertumbuhan Dana Kelolaan",
     category: "Dana Kelolaan",
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
-  },
-  {
-    id: 4,
-    title: "Distribusi Portofolio",
-    category: "Diversifikasi",
-    imageUrl: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    id: 5,
-    title: "Analisis Risiko Pasar",
-    category: "Manajemen Risiko",
-    imageUrl: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop"
-  },
-  {
-    id: 6,
-    title: "Proyeksi Imbal Hasil",
-    category: "Proyeksi",
-    imageUrl: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop"
   }
 ];
 

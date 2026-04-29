@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { GalleryItem } from '../types';
 import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
@@ -83,12 +83,49 @@ const galleryItems: GalleryItem[] = [
       "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(3).jpeg?raw=true",
       "https://github.com/danapensiunjm-glitch/assets/blob/main/hutJM.jpeg?raw=true"
     ]
+  },
+  {
+    id: 7,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/pertemuan%20industri%20keuangan.jpeg?raw=true",
+    caption: "Pertemuan Industri Keuangan",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/pertemuan%20industri%20keuangan.jpeg?raw=true"
+    ]
+  },
+  {
+    id: 8,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/digitalisasi%20kearsipan%20(1).jpeg?raw=true",
+    caption: "Digitalisasi Kearsipan",
+    category: "Kegiatan Internal",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/digitalisasi%20kearsipan%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/digitalisasi%20kearsipan%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/digitalisasi%20kearsipan%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/digitalisasi%20kearsipan%20(4).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/digitalisasi%20kearsipan%20(5).jpeg?raw=true"
+    ]
   }
 ];
 
 export const Gallery: React.FC = () => {
   const [selectedGallery, setSelectedGallery] = useState<GalleryItem | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = window.innerWidth > 768 ? 400 : 300;
+      scrollContainerRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = window.innerWidth > 768 ? 400 : 300;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   const openLightbox = (e: React.MouseEvent, item: GalleryItem) => {
     if (item.images && item.images.length > 0) {
@@ -125,15 +162,36 @@ export const Gallery: React.FC = () => {
           <div className="w-20 h-1 bg-accent-500 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item) => (
+        <div className="relative group/nav">
+          {/* Navigation Buttons */}
+          <button 
+            onClick={scrollLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 md:-ml-6 z-10 bg-white/90 shadow-lg rounded-full p-2 lg:p-3 text-corporate-900 border border-slate-100 hover:bg-corporate-50 hover:text-corporate-800 hover:scale-110 transition-all opacity-0 group-hover/nav:opacity-100"
+            aria-label="Geser ke kiri"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          <button 
+            onClick={scrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 md:-mr-6 z-10 bg-white/90 shadow-lg rounded-full p-2 lg:p-3 text-corporate-900 border border-slate-100 hover:bg-corporate-50 hover:text-corporate-800 hover:scale-110 transition-all opacity-0 group-hover/nav:opacity-100"
+            aria-label="Geser ke kanan"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div 
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto pb-8 pt-4 px-4 -mx-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {galleryItems.map((item) => (
             <a 
               key={item.id} 
               href={item.images ? "#" : "https://www.instagram.com/dapen.jm/"}
               target={item.images ? "_self" : "_blank"}
               rel={item.images ? "" : "noopener noreferrer"}
               onClick={(e) => openLightbox(e, item)}
-              className="group relative rounded-xl overflow-hidden cursor-pointer h-72 block"
+              className="group relative rounded-xl overflow-hidden cursor-pointer h-80 block flex-none w-[85vw] md:w-[45vw] lg:w-[350px] xl:w-[400px] snap-center shadow-lg"
             >
               <img 
                 src={item.imageUrl} 
@@ -153,6 +211,7 @@ export const Gallery: React.FC = () => {
               </div>
             </a>
           ))}
+          </div>
         </div>
         
         <div className="text-center mt-12">
