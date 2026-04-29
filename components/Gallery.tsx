@@ -5,9 +5,19 @@ import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    imageUrl: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?q=80&w=1932&auto=format&fit=crop",
-    caption: "Rapat Kerja Tahunan Dewan Pengawas & Direksi",
-    category: "Kegiatan"
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(1).jpeg?raw=true",
+    caption: "Rapat pendiri 2026",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(4).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(5).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(6).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(7).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(8).jpeg?raw=true"
+    ]
   },
   {
     id: 2,
@@ -70,7 +80,8 @@ const galleryItems: GalleryItem[] = [
     images: [
       "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(1).jpeg?raw=true",
       "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(2).jpeg?raw=true",
-      "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(3).jpeg?raw=true"
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/hut%20JM%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/hutJM.jpeg?raw=true"
     ]
   }
 ];
