@@ -32,10 +32,10 @@ export const Files: React.FC = () => {
     },
     { 
       id: 4, 
-      name: 'Laporan Keuangan 2025', 
+      name: 'Laporan Publikasi 2025', 
       date: '2025', 
       size: 'PDF',
-      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/LAPORAN%20KEUANGAN.png?raw=true',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/LAPORAN%20PUBLIKASI.png?raw=true',
       downloadUrl: 'https://drive.google.com/file/d/1t-KmFCeS7K-xywBIKYiqfC5lb0uVoCJx/view?usp=drive_link',
       allowDownload: true
     },
