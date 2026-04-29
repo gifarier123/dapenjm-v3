@@ -35,9 +35,18 @@ export const Files: React.FC = () => {
       name: 'Laporan Keuangan 2025', 
       date: '2025', 
       size: 'PDF',
-      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/Gemini_Generated_Image_2vh0sp2vh0sp2vh0.png?raw=true',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/LAPORAN%20KEUANGAN.png?raw=true',
       downloadUrl: 'https://drive.google.com/file/d/1t-KmFCeS7K-xywBIKYiqfC5lb0uVoCJx/view?usp=drive_link',
       allowDownload: true
+    },
+    { 
+      id: 5, 
+      name: 'Laporan Keberlanjutan 2025', 
+      date: '2025', 
+      size: 'PDF',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/LAPORAN%20KEBERLANJUTAN%20.png?raw=true',
+      downloadUrl: 'https://drive.google.com/file/d/14mcruZhDb94IWhjscmOuQpWIzwratgTK/view?usp=drive_link',
+      allowDownload: false
     }
   ];
 
