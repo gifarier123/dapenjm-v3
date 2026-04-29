@@ -4,6 +4,17 @@ import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
+    id: 9,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/PPDP%20(1).jpeg?raw=true",
+    caption: "PPDP Regulatory Dissemination Day 2026",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/PPDP%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/PPDP%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/PPDP%20(3).jpeg?raw=true"
+    ]
+  },
+  {
     id: 1,
     imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/rapat%20pendiri%20(1).jpeg?raw=true",
     caption: "Rapat pendiri 2026",
