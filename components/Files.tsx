@@ -9,7 +9,7 @@ export const Files: React.FC = () => {
       date: '2025', 
       size: 'PDF',
       imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/Gemini_Generated_Image_1bhlk31bhlk31bhl.png?raw=true',
-      downloadUrl: 'https://drive.google.com/file/d/1Ow_zDUlkfIaqIQSb18UNAoUnheRXiLft/view?usp=drive_link',
+      downloadUrl: 'https://drive.google.com/file/d/1yyOF5XH-zo1PC31oOB5WrzhnWYONL0Oi/view?usp=drive_link',
       allowDownload: false
     },
     { 
@@ -18,7 +18,7 @@ export const Files: React.FC = () => {
       date: '2024', 
       size: 'PDF',
       imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/Gemini_Generated_Image_yduvjryduvjryduv.png?raw=true',
-      downloadUrl: 'https://drive.google.com/file/d/1khRIei66kayppARuYLRq8WjO6CjBjgA3/view?usp=drive_link',
+      downloadUrl: 'https://drive.google.com/file/d/18EygC__9pSoZrHGbqvmOwncTTjf3Ekz5/view?usp=drive_link',
       allowDownload: false
     },
     { 
