@@ -27,7 +27,7 @@ export const Files: React.FC = () => {
       date: '2023', 
       size: 'PDF',
       imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/Gemini_Generated_Image_b27ib2b27ib2b27i.png?raw=true',
-      downloadUrl: 'https://drive.google.com/file/d/1PoRMZcOXnGaZLxmeOK89tXh6y7YxipFL/view?usp=drive_link',
+      downloadUrl: 'https://drive.google.com/file/d/1SWWKDUGUeF2Zem3AhLGePi8RP1wBnn2p/view?usp=drive_link',
       allowDownload: false
     },
     { 
