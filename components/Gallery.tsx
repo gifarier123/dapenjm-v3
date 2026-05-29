@@ -4,6 +4,20 @@ import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
+    id: 10,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/UPACARA%20HARKITNAS%202026%20(1).jpeg?raw=true",
+    caption: "Upacara Hari Kebangkitan Nasional di Halaman Dana Pensiun Jasa Marga",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/UPACARA%20HARKITNAS%202026%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/UPACARA%20HARKITNAS%202026%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/UPACARA%20HARKITNAS%202026%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/UPACARA%20HARKITNAS%202026%20(4).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/UPACARA%20HARKITNAS%202026%20(5).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/UPACARA%20HARKITNAS%202026%20(6).jpeg?raw=true"
+    ]
+  },
+  {
     id: 9,
     imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/PPDP%20(1).jpeg?raw=true",
     caption: "PPDP Regulatory Dissemination Day 2026",

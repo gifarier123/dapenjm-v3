@@ -106,15 +106,15 @@ export const Hero: React.FC = () => {
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Pendataan Ulang</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={4207} /></span>
+              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={4200} /></span>
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={1306} /></span>
+              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={1285} /></span>
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta Aktif</span>
             </div>
              <div className="flex flex-col">
-              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={2901} /></span>
+              <span className="text-4xl font-bold text-white mb-1"><AnimatedCounter end={2915} /></span>
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Peserta Pasif</span>
             </div>
           </div>
