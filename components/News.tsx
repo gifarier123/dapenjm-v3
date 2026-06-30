@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, ArrowRight, Clock } from 'lucide-react';
+import { Calendar, ArrowRight, Clock, Wrench } from 'lucide-react';
 import { NewsItem } from '../types';
 
 export const newsItems: NewsItem[] = [
@@ -55,58 +55,16 @@ export const News: React.FC<NewsProps> = ({ onNewsClick }) => {
             <h2 className="text-accent-600 font-bold tracking-widest uppercase text-sm mb-3">Berita & Artikel</h2>
             <h3 className="text-3xl font-bold text-corporate-900">Kabar Terkini Dapen Jasa Marga</h3>
           </div>
-          <button className="hidden md:flex items-center text-corporate-700 font-bold hover:text-accent-600 transition-colors mt-4 md:mt-0 group">
-            Arsip Berita <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
-          </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {newsItems.slice(0, 3).map((item) => (
-            <article key={item.id} className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-              <div className="relative overflow-hidden h-56 cursor-pointer" onClick={() => onNewsClick?.(item)}>
-                <img 
-                  src={item.imageUrl} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold text-corporate-900 uppercase tracking-wider shadow-sm">
-                  {item.category}
-                </div>
-              </div>
-              <div className="flex-1 p-8 flex flex-col">
-                <div className="flex items-center text-gray-400 text-xs font-medium mb-4">
-                  <Calendar className="w-4 h-4 mr-2 text-accent-500" />
-                  {item.date}
-                </div>
-                <h4 
-                  className="text-xl font-bold text-corporate-900 mb-3 leading-snug group-hover:text-accent-600 transition-colors cursor-pointer"
-                  onClick={() => onNewsClick?.(item)}
-                >
-                  {item.title}
-                </h4>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
-                  {item.summary}
-                </p>
-                <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
-                   <span className="text-xs text-gray-400 flex items-center">
-                     <Clock className="w-3 h-3 mr-1" /> 5 min read
-                   </span>
-                   <button 
-                    onClick={() => onNewsClick?.(item)}
-                    className="text-sm font-bold text-corporate-800 group-hover:text-accent-600 cursor-pointer flex items-center hover:underline"
-                   >
-                     Baca Selengkapnya
-                   </button>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-10 text-center md:hidden">
-            <button className="inline-flex items-center bg-white px-6 py-3 rounded-full text-corporate-900 font-bold shadow-md hover:bg-gray-50 transition-colors border border-gray-200">
-                Lihat Semua Berita <ArrowRight className="w-4 h-4 ml-2" />
-            </button>
+        <div className="flex flex-col items-center justify-center py-16 text-center space-y-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
+          <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-2">
+            <Wrench className="w-10 h-10 text-orange-500" />
+          </div>
+          <h4 className="text-xl font-bold text-gray-900">Sedang Perbaikan</h4>
+          <p className="text-gray-500 text-sm leading-relaxed max-w-md mx-auto">
+            Mohon maaf, halaman Berita & Artikel saat ini sedang dalam perbaikan. Silakan coba kembali beberapa saat lagi.
+          </p>
         </div>
       </div>
     </section>

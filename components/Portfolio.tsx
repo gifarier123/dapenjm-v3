@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ZoomIn } from 'lucide-react';
+import { X, ZoomIn, Wrench } from 'lucide-react';
 
 interface PortfolioItem {
   id: number;
@@ -32,11 +32,6 @@ const portfolioItems: PortfolioItem[] = [
 export const Portfolio: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<PortfolioItem | null>(null);
 
-  const openLightbox = (e: React.MouseEvent, item: PortfolioItem) => {
-    e.preventDefault();
-    setSelectedImage(item);
-  };
-
   const closeLightbox = () => {
     setSelectedImage(null);
   };
@@ -53,35 +48,14 @@ export const Portfolio: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioItems.map((item) => (
-            <div 
-              key={item.id} 
-              className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
-              onClick={(e) => openLightbox(e, item)}
-            >
-              <div className="relative h-64 w-full overflow-hidden">
-                <img 
-                  src={item.imageUrl} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-corporate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm p-3 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    <ZoomIn className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-              </div>
-              <div className="p-6 bg-white">
-                <span className="text-accent-500 text-xs font-bold uppercase tracking-wider mb-2 block">
-                  {item.category}
-                </span>
-                <h4 className="text-corporate-900 font-bold text-lg leading-tight">
-                  {item.title}
-                </h4>
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-col items-center justify-center py-16 text-center space-y-4 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm">
+          <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-2">
+            <Wrench className="w-10 h-10 text-orange-500" />
+          </div>
+          <h4 className="text-xl font-bold text-gray-900">Sedang Perbaikan</h4>
+          <p className="text-gray-500 text-sm leading-relaxed max-w-md mx-auto">
+            Mohon maaf, halaman Portofolio Investasi saat ini sedang dalam perbaikan. Silakan coba kembali beberapa saat lagi.
+          </p>
         </div>
       </div>
 

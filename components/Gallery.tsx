@@ -4,6 +4,28 @@ import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
+    id: 12,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/Rekonsiliasi%20bersama%20HCS%2011-12%20Juni%202026%20(1).jpg?raw=true",
+    caption: "Rekonsiliasi bersama HCS Jasa Marga 11-12 Juni 2026",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/Rekonsiliasi%20bersama%20HCS%2011-12%20Juni%202026%20(1).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/Rekonsiliasi%20bersama%20HCS%2011-12%20Juni%202026%20(2).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/Rekonsiliasi%20bersama%20HCS%2011-12%20Juni%202026%20(3).jpg?raw=true"
+    ]
+  },
+  {
+    id: 11,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/Sosialisasi%20ppjm%20Bandung%2011%20Juni%202026%20(1).jpg?raw=true",
+    caption: "Sosialisasi PPJM Bandung 11 Juni 2026",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/Sosialisasi%20ppjm%20Bandung%2011%20Juni%202026%20(1).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/Sosialisasi%20ppjm%20Bandung%2011%20Juni%202026%20(2).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/Sosialisasi%20ppjm%20Bandung%2011%20Juni%202026%20(3).jpg?raw=true"
+    ]
+  },
+  {
     id: 10,
     imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/UPACARA%20HARKITNAS%202026%20(1).jpeg?raw=true",
     caption: "Upacara Hari Kebangkitan Nasional di Halaman Dana Pensiun Jasa Marga",
