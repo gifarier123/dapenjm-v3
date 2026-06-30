@@ -4,6 +4,19 @@ import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
+    id: 13,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/treking%20(1).jpg?raw=true",
+    caption: "Olahraga trekking di Leui Hejo Sentul",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/treking%20(1).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/treking%20(2).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/treking%20(3).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/treking%20(4).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/treking%20(5).jpg?raw=true"
+    ]
+  },
+  {
     id: 12,
     imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/Rekonsiliasi%20bersama%20HCS%2011-12%20Juni%202026%20(1).jpg?raw=true",
     caption: "Rekonsiliasi bersama HCS Jasa Marga 11-12 Juni 2026",
