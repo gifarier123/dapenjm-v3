@@ -4,6 +4,20 @@ import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
+    id: 14,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/HUT%20DAPEN%20(1).jpg?raw=true",
+    caption: "HUT Dana Pensiun Jasa Marga ke 29",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HUT%20DAPEN%20(1).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HUT%20DAPEN%20(2).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HUT%20DAPEN%20(3).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HUT%20DAPEN%20(4).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HUT%20DAPEN%20(5).jpg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HUT%20DAPEN%20(6).jpg?raw=true"
+    ]
+  },
+  {
     id: 13,
     imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/treking%20(1).jpg?raw=true",
     caption: "Olahraga trekking di Leui Hejo Sentul",
