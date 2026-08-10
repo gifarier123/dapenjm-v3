@@ -32,10 +32,47 @@ const AnimatedCounter: React.FC<{ end: number; duration?: number; suffix?: strin
 };
 
 export const Hero: React.FC = () => {
+  const [clickStars, setClickStars] = useState<{ id: number; x: number; y: number; emoji: string; angle: number; distance: number }[]>([]);
+
+  const handleBannerClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const newStars = Array.from({ length: 15 }).map((_, i) => ({
+      id: Date.now() + i,
+      x,
+      y,
+      emoji: ['⭐', '✨', '🌟', '💫'][Math.floor(Math.random() * 4)],
+      angle: Math.random() * 360,
+      distance: 50 + Math.random() * 100
+    }));
+
+    setClickStars(prev => [...prev, ...newStars]);
+
+    setTimeout(() => {
+      setClickStars(prev => prev.filter(star => !newStars.find(ns => ns.id === star.id)));
+    }, 800);
+  };
+
   return (
     // Increased min-height to screen and added significant bottom padding (pb-32) 
     // to extend the blue background downwards as requested
     <section id="home" className="relative min-h-screen flex items-center bg-corporate-900 overflow-hidden pb-32">
+      <style>
+        {`
+          @keyframes scatter {
+            0% {
+              transform: translate(-50%, -50%) scale(0) rotate(0deg);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.5) rotate(var(--rot));
+              opacity: 0;
+            }
+          }
+        `}
+      </style>
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0">
         <video
@@ -65,14 +102,72 @@ export const Hero: React.FC = () => {
       <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-accent-600/20 rounded-full blur-3xl mix-blend-screen animate-pulse duration-[4s]"></div>
 
       {/* Content - Added pt-32 to balance the layout vertically */}
-      <div className="container mx-auto px-4 md:px-6 relative z-10 pt-32">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 pt-24 md:pt-32">
+        {/* Celebration Banner - Full Width */}
+        <div 
+          onClick={handleBannerClick}
+          className="relative overflow-hidden w-full rounded-3xl p-6 md:p-10 mb-10 shadow-2xl border border-white/30 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-100 bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 transition-all"
+        >
+          {/* Click Stars */}
+          {clickStars.map(star => (
+            <div
+              key={star.id}
+              className="absolute pointer-events-none text-2xl z-20 opacity-0"
+              style={{
+                left: star.x,
+                top: star.y,
+                animation: 'scatter 0.8s ease-out forwards',
+                '--tx': `${Math.cos(star.angle * Math.PI / 180) * star.distance}px`,
+                '--ty': `${Math.sin(star.angle * Math.PI / 180) * star.distance}px`,
+                '--rot': `${star.angle + 180}deg`
+              } as React.CSSProperties}
+            >
+              {star.emoji}
+            </div>
+          ))}
+
+          {/* Confetti decoration elements */}
+          <div className="absolute inset-0 pointer-events-none opacity-90 overflow-hidden">
+            {/* Left side ornaments */}
+            <div className="absolute top-4 left-[5%] text-4xl animate-bounce" style={{ animationDuration: '2.5s' }}>🎉</div>
+            <div className="absolute bottom-6 left-[12%] text-3xl animate-pulse" style={{ animationDuration: '3s' }}>✨</div>
+            <div className="absolute top-1/2 left-[18%] text-2xl text-[#F28C2B] animate-spin" style={{ animationDuration: '6s' }}>✦</div>
+            <div className="absolute top-8 left-[25%] text-5xl opacity-50 animate-bounce" style={{ animationDuration: '3.5s' }}>🎊</div>
+            <div className="absolute bottom-4 left-[35%] text-3xl text-white opacity-60">🎈</div>
+            
+            {/* Center-ish ornaments */}
+            <div className="absolute top-2 left-[45%] text-xl text-[#F28C2B] animate-ping" style={{ animationDuration: '4s' }}>★</div>
+            <div className="absolute bottom-8 left-[50%] text-2xl text-[#123E7A] animate-pulse">✨</div>
+            <div className="absolute top-10 right-[45%] text-3xl text-white opacity-50 animate-bounce" style={{ animationDuration: '3s' }}>🎈</div>
+            
+            {/* Right side ornaments */}
+            <div className="absolute bottom-6 right-[35%] text-4xl text-[#F28C2B] animate-spin" style={{ animationDuration: '5s' }}>✦</div>
+            <div className="absolute top-4 right-[25%] text-2xl animate-pulse" style={{ animationDuration: '2s' }}>🎊</div>
+            <div className="absolute top-1/2 right-[18%] text-5xl opacity-50 animate-bounce" style={{ animationDuration: '4s' }}>🎉</div>
+            <div className="absolute bottom-8 right-[12%] text-3xl text-[#4FAF6D] animate-spin" style={{ animationDuration: '7s' }}>✦</div>
+            <div className="absolute top-8 right-[5%] text-4xl animate-bounce" style={{ animationDuration: '2.2s' }}>🎈</div>
+          </div>
+          
+          <div className="relative z-10 flex flex-col items-center justify-center text-center">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] mb-6 tracking-wide">
+              Memperingati Bulan Dana Pensiun 2026
+            </h2>
+            <div className="flex space-x-6">
+              <div className="w-20 h-3 rounded-full bg-[#F28C2B] shadow-lg"></div>
+              <div className="w-20 h-3 rounded-full bg-[#123E7A] shadow-lg"></div>
+              <div className="w-20 h-3 rounded-full bg-[#4FAF6D] shadow-lg"></div>
+              <div className="w-20 h-3 rounded-full bg-[#6BB7C6] shadow-lg"></div>
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-4xl">
           <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <ShieldCheck className="w-4 h-4 text-accent-500" />
             <span className="text-xs font-semibold text-white tracking-wide uppercase">Dapen Jasa Marga</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
             Mewujudkan <br/>
             Masa Depan <br/>
             <span className="text-white">
@@ -80,11 +175,11 @@ export const Hero: React.FC = () => {
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-white mb-10 max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="text-lg md:text-xl text-white mb-10 max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
             Kami mengelola dana pensiun karyawan Jasa Marga dengan prinsip kehati-hatian, transparansi, dan profesionalisme untuk memberikan manfaat pasti di hari tua.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-5 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
+          <div className="flex flex-col sm:flex-row gap-5 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-400">
             <a 
               href="#services" 
               className="flex items-center justify-center space-x-2 bg-accent-600 hover:bg-accent-700 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-xl shadow-accent-600/20 cursor-pointer"
