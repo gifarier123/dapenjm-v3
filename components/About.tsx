@@ -175,7 +175,8 @@ export const About: React.FC = () => {
               <h4 className="text-2xl font-semibold mb-10 border-b border-white/30 pb-4 inline-block">Pengurus Dana Pensiun Jasa Marga</h4>
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {[
-                  { name: "Abdul Hamid", role: "Direktur\nmerangkap\nPgs. Direktur Utama", image: "https://github.com/danapensiunjm-glitch/assets/blob/main/ABDUL%20HAMID.png?raw=true" }
+                  { name: "Andree Iskandar", role: "Direktur Utama", image: "https://github.com/danapensiunjm-glitch/assets/blob/main/PAKDIRUT.jpg?raw=true" },
+                  { name: "Abdul Hamid", role: "Direktur", image: "https://github.com/danapensiunjm-glitch/assets/blob/main/ABDUL%20HAMID.png?raw=true" }
                 ].map((member, idx) => (
                   <div key={idx} className="flex flex-col items-center w-48 group relative z-0 hover:z-50">
                     <div className="w-32 h-40 rounded-2xl border-4 border-[#00A651] bg-white mb-5 overflow-hidden shadow-xl transform group-hover:scale-150 transition-transform duration-300 origin-bottom">
