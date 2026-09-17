@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   ArrowLeft, 
   ShieldCheck, 
@@ -19,7 +19,10 @@ import {
   MapPin, 
   AlertTriangle,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  Globe,
+  Copy,
+  Check
 } from 'lucide-react';
 
 interface PrivacyPolicyProps {
@@ -27,9 +30,44 @@ interface PrivacyPolicyProps {
 }
 
 export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
+  const [copied, setCopied] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const originalTitle = document.title;
+    document.title = 'Kebijakan Privasi - Dana Pensiun Jasa Marga';
+
+    // Set canonical link for SEO and official indexing
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    const created = !canonical;
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = 'https://dapenjasamarga.com/kebijakan-privasi';
+
+    return () => {
+      document.title = originalTitle;
+      if (created && canonical.parentNode) {
+        canonical.parentNode.removeChild(canonical);
+      } else if (canonical) {
+        canonical.href = 'https://dapenjasamarga.com/';
+      }
+    };
   }, []);
+
+  const handleCopyUrl = async () => {
+    try {
+      await navigator.clipboard.writeText('https://dapenjasamarga.com/kebijakan-privasi');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -101,6 +139,38 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
               <span className="bg-[#F28C2B]/20 text-amber-200 px-3 py-1.5 rounded-lg border border-[#F28C2B]/30 font-medium flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#F28C2B]" /> POJK No. 22/2023
               </span>
+            </div>
+
+            {/* Permanent Canonical URL display */}
+            <div className="mt-5 inline-flex flex-wrap items-center gap-2 bg-black/25 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/15 text-xs text-white/90">
+              <Globe className="w-3.5 h-3.5 text-accent-300 flex-shrink-0" />
+              <span className="text-white/60 font-medium">Tautan Resmi:</span>
+              <a 
+                href="https://dapenjasamarga.com/kebijakan-privasi" 
+                target="_blank" 
+                rel="noreferrer"
+                className="font-mono font-medium text-corporate-100 hover:text-white underline decoration-accent-400/60 underline-offset-2 transition-colors"
+              >
+                https://dapenjasamarga.com/kebijakan-privasi
+              </a>
+              <button
+                type="button"
+                onClick={handleCopyUrl}
+                className="ml-1 inline-flex items-center gap-1 bg-white/15 hover:bg-white/25 active:scale-95 text-white px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer border border-white/10"
+                title="Salin tautan resmi kebijakan privasi"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-3 h-3 text-emerald-300" />
+                    <span className="text-emerald-300">Tersalin!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3 h-3 text-white/80" />
+                    <span>Salin URL</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </div>

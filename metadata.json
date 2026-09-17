@@ -1,5 +1,6 @@
 {
   "name": "Website Dapen Jasa Marga",
   "description": "A professional, modern redesign of the Dana Pensiun Jasa Marga website featuring a clean corporate aesthetic, responsive layout, and an AI-powered pension assistant.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

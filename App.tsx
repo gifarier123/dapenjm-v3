@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -16,14 +16,39 @@ import { BlogDetail } from './components/BlogDetail';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { User, NewsItem } from './types';
 
+const isPrivacyPath = () => {
+  if (typeof window === 'undefined') return false;
+  const path = window.location.pathname.toLowerCase();
+  const hash = window.location.hash.toLowerCase();
+  return path === '/kebijakan-privasi' || path.startsWith('/kebijakan-privasi') || hash === '#kebijakan-privasi';
+};
+
 const App: React.FC = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   
-  // View State
-  const [view, setView] = useState<'home' | 'blog' | 'privacy'>('home');
+  // View State - initialized based on URL
+  const [view, setView] = useState<'home' | 'blog' | 'privacy'>(() => {
+    return isPrivacyPath() ? 'privacy' : 'home';
+  });
   const [selectedPost, setSelectedPost] = useState<NewsItem | null>(null);
+
+  // Sync with browser back/forward buttons (History API)
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isPrivacyPath()) {
+        setView('privacy');
+        setSelectedPost(null);
+      } else {
+        setView('home');
+        setSelectedPost(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const handleLoginSuccess = (userData: User) => {
     setUser(userData);
@@ -46,12 +71,19 @@ const App: React.FC = () => {
 
   const handlePrivacyClick = () => {
     setView('privacy');
+    setSelectedPost(null);
+    if (window.location.pathname !== '/kebijakan-privasi') {
+      window.history.pushState({ view: 'privacy' }, '', '/kebijakan-privasi');
+    }
     window.scrollTo(0, 0);
   };
 
   const handleBackToHome = () => {
     setView('home');
     setSelectedPost(null);
+    if (window.location.pathname === '/kebijakan-privasi' || window.location.hash === '#kebijakan-privasi') {
+      window.history.pushState({ view: 'home' }, '', '/');
+    }
     window.scrollTo(0, 0);
   };
 

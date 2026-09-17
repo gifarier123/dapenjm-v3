@@ -79,15 +79,20 @@ export const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
             <p className="text-xs opacity-75">Terdaftar dan Diawasi oleh Otoritas Jasa Kuangan dan LAPS SJK</p>
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <button 
+            <a 
+              href="/kebijakan-privasi"
               onClick={(e) => {
-                e.preventDefault();
-                onPrivacyClick?.();
+                // If not middle click or ctrl/cmd click, handle as SPA
+                if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
+                  e.preventDefault();
+                  onPrivacyClick?.();
+                }
               }}
               className="hover:text-white transition-colors cursor-pointer text-left"
+              title="Kebijakan Privasi - https://dapenjasamarga.com/kebijakan-privasi"
             >
               Kebijakan Privasi
-            </button>
+            </a>
             <a href="#" className="hover:text-white transition-colors">Syarat & Ketentuan</a>
             <a href="#" className="hover:text-white transition-colors">Sitemap</a>
           </div>
