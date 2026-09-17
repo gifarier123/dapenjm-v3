@@ -1,0 +1,4 @@
+# Redirects for Netlify, Cloudflare Pages, etc.
+/kebijakan-privasi    /kebijakan-privasi/index.html   200
+/kebijakan-privasi/*  /kebijakan-privasi/index.html   200
+/*                    /index.html                     200

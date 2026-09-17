@@ -1,0 +1,16 @@
+# Apache configuration for Dana Pensiun Jasa Marga Single Page Application
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Allow direct access to existing files and directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Route /kebijakan-privasi directly to kebijakan-privasi/index.html or index.html
+  RewriteRule ^kebijakan-privasi/?$ /kebijakan-privasi/index.html [L]
+
+  # Fallback all other URLs to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>

@@ -20,7 +20,13 @@ const isPrivacyPath = () => {
   if (typeof window === 'undefined') return false;
   const path = window.location.pathname.toLowerCase();
   const hash = window.location.hash.toLowerCase();
-  return path === '/kebijakan-privasi' || path.startsWith('/kebijakan-privasi') || hash === '#kebijakan-privasi';
+  const search = window.location.search.toLowerCase();
+  return (
+    path.includes('kebijakan-privasi') ||
+    hash.includes('kebijakan-privasi') ||
+    search.includes('kebijakan-privasi') ||
+    search.includes('privacy')
+  );
 };
 
 const App: React.FC = () => {
@@ -101,6 +107,8 @@ const App: React.FC = () => {
          <Header 
             onLoginClick={() => setIsLoginOpen(true)} 
             onNavigateHome={handleBackToHome}
+            onPrivacyClick={handlePrivacyClick}
+            isPrivacyPage={false}
          />
          <BlogDetail 
             post={selectedPost} 
@@ -126,6 +134,10 @@ const App: React.FC = () => {
          <Header 
             onLoginClick={() => setIsLoginOpen(true)} 
             onNavigateHome={handleBackToHome}
+            onPrivacyClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            isPrivacyPage={true}
          />
          <PrivacyPolicy onBack={handleBackToHome} />
          <Footer onPrivacyClick={() => {
@@ -147,6 +159,8 @@ const App: React.FC = () => {
       <Header 
         onLoginClick={() => setIsLoginOpen(true)} 
         onNavigateHome={handleBackToHome}
+        onPrivacyClick={handlePrivacyClick}
+        isPrivacyPage={false}
       />
       <main>
         <Hero />

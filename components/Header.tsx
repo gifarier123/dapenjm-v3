@@ -4,12 +4,19 @@ import { Menu, X, LogIn } from 'lucide-react';
 interface HeaderProps {
   onLoginClick: () => void;
   onNavigateHome?: () => void;
+  onPrivacyClick?: () => void;
+  isPrivacyPage?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onLoginClick, onNavigateHome }) => {
+export const Header: React.FC<HeaderProps> = ({ 
+  onLoginClick, 
+  onNavigateHome,
+  onPrivacyClick,
+  isPrivacyPage = false 
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState(isPrivacyPage ? 'privacy' : 'home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -160,6 +167,20 @@ export const Header: React.FC<HeaderProps> = ({ onLoginClick, onNavigateHome }) 
                 {activeSection === link.id && <div className="w-1.5 h-1.5 rounded-full bg-accent-600"></div>}
               </a>
             ))}
+            <a
+              href="/kebijakan-privasi"
+              className={`text-base font-medium border-b border-gray-50 pb-3 flex justify-between items-center ${
+                isPrivacyPage ? 'text-accent-600 font-semibold' : 'text-gray-700 hover:text-corporate-900'
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMobileMenuOpen(false);
+                onPrivacyClick?.();
+              }}
+            >
+              Kebijakan Privasi
+              {isPrivacyPage && <div className="w-1.5 h-1.5 rounded-full bg-accent-600"></div>}
+            </a>
             <button 
               onClick={() => {
                 setIsMobileMenuOpen(false);
