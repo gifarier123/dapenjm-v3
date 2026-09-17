@@ -1,7 +1,11 @@
 import React from 'react';
 import { Facebook, Instagram, Youtube, ExternalLink } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onPrivacyClick?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
   return (
     <footer className="bg-corporate-900 text-white pt-20 pb-10 border-t border-white/5">
       <div className="container mx-auto px-4 md:px-6">
@@ -75,7 +79,15 @@ export const Footer: React.FC = () => {
             <p className="text-xs opacity-75">Terdaftar dan Diawasi oleh Otoritas Jasa Kuangan dan LAPS SJK</p>
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Kebijakan Privasi</a>
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                onPrivacyClick?.();
+              }}
+              className="hover:text-white transition-colors cursor-pointer text-left"
+            >
+              Kebijakan Privasi
+            </button>
             <a href="#" className="hover:text-white transition-colors">Syarat & Ketentuan</a>
             <a href="#" className="hover:text-white transition-colors">Sitemap</a>
           </div>

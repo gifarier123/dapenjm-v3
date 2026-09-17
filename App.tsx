@@ -13,6 +13,7 @@ import { ChatAssistant } from './components/ChatAssistant';
 import { LoginModal } from './components/LoginModal';
 import { Dashboard } from './components/Dashboard';
 import { BlogDetail } from './components/BlogDetail';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { User, NewsItem } from './types';
 
 const App: React.FC = () => {
@@ -20,8 +21,8 @@ const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   
-  // Blog State
-  const [view, setView] = useState<'home' | 'blog'>('home');
+  // View State
+  const [view, setView] = useState<'home' | 'blog' | 'privacy'>('home');
   const [selectedPost, setSelectedPost] = useState<NewsItem | null>(null);
 
   const handleLoginSuccess = (userData: User) => {
@@ -43,12 +44,15 @@ const App: React.FC = () => {
     setView('blog');
   };
 
+  const handlePrivacyClick = () => {
+    setView('privacy');
+    window.scrollTo(0, 0);
+  };
+
   const handleBackToHome = () => {
     setView('home');
     setSelectedPost(null);
-    // Note: Scroll restoration is handled by Header logic or manually here if needed, 
-    // but typically we let Header handle ID scrolling if clicked, or just scroll top here.
-    if (view === 'blog') window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   };
 
   // View: Dashboard (User Logged In)
@@ -72,7 +76,29 @@ const App: React.FC = () => {
             relatedNews={newsItems}
             onRelatedClick={handleNewsClick}
          />
-         <Footer />
+         <Footer onPrivacyClick={handlePrivacyClick} />
+         <ChatAssistant />
+         <LoginModal 
+           isOpen={isLoginOpen} 
+           onClose={() => setIsLoginOpen(false)} 
+           onLoginSuccess={handleLoginSuccess}
+         />
+      </div>
+    );
+  }
+
+  // View: Privacy Policy
+  if (view === 'privacy') {
+    return (
+      <div className="bg-white min-h-screen font-sans text-gray-900 selection:bg-accent-500 selection:text-white">
+         <Header 
+            onLoginClick={() => setIsLoginOpen(true)} 
+            onNavigateHome={handleBackToHome}
+         />
+         <PrivacyPolicy onBack={handleBackToHome} />
+         <Footer onPrivacyClick={() => {
+           window.scrollTo({ top: 0, behavior: 'smooth' });
+         }} />
          <ChatAssistant />
          <LoginModal 
            isOpen={isLoginOpen} 
@@ -100,7 +126,7 @@ const App: React.FC = () => {
         <Portfolio />
         <Contact />
       </main>
-      <Footer />
+      <Footer onPrivacyClick={handlePrivacyClick} />
       <ChatAssistant />
       <LoginModal 
         isOpen={isLoginOpen} 
