@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, LogIn } from 'lucide-react';
 
 interface HeaderProps {
-  onLoginClick: () => void;
+  onLoginClick?: () => void;
   onNavigateHome?: () => void;
   onPrivacyClick?: () => void;
   isPrivacyPage?: boolean;
@@ -126,13 +126,15 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent-500 transition-all duration-300 group-hover:w-full ${activeSection === link.id ? 'w-full' : ''}`}></span>
               </a>
             ))}
-            <button 
-              onClick={onLoginClick}
+            <a 
+              href="https://sidatul.dapenjasamarga.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 bg-accent-600 hover:bg-accent-700 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-accent-500/30 transform hover:scale-105 hover:-translate-y-0.5"
             >
               <LogIn className="w-4 h-4" />
               Login Peserta
-            </button>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -181,16 +183,16 @@ export const Header: React.FC<HeaderProps> = ({
               Kebijakan Privasi
               {isPrivacyPage && <div className="w-1.5 h-1.5 rounded-full bg-accent-600"></div>}
             </a>
-            <button 
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                onLoginClick();
-              }}
+            <a 
+              href="https://sidatul.dapenjasamarga.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="bg-corporate-900 text-white w-full py-3.5 rounded-xl font-bold mt-4 flex items-center justify-center gap-2 shadow-lg hover:bg-corporate-800 transition-colors"
             >
               <LogIn className="w-4 h-4" />
               Login Peserta
-            </button>
+            </a>
           </div>
         </div>
       )}

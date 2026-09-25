@@ -59,8 +59,8 @@ export const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
           <div>
             <h4 className="font-bold text-lg mb-6 text-white border-b border-accent-500/30 pb-2 inline-block">Aplikasi Peserta</h4>
             <ul className="space-y-3 text-sm text-corporate-200">
-              <li><a href="#" className="hover:text-accent-400 transition-colors flex items-center gap-2"><ExternalLink className="w-3 h-3" />Portal Peserta (e-Dapen)</a></li>
-              <li><a href="#" className="hover:text-accent-400 transition-colors flex items-center gap-2"><ExternalLink className="w-3 h-3" />Pengkinian Data Online</a></li>
+              <li><a href="https://sidatul.dapenjasamarga.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-400 transition-colors flex items-center gap-2"><ExternalLink className="w-3 h-3" />Portal Peserta (SiDatul)</a></li>
+              <li><a href="https://sidatul.dapenjasamarga.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-400 transition-colors flex items-center gap-2"><ExternalLink className="w-3 h-3" />Pengkinian Data Online</a></li>
             </ul>
           </div>
 
