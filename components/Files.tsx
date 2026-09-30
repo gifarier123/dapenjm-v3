@@ -47,6 +47,33 @@ export const Files: React.FC = () => {
       imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/LAPORAN%20KEBERLANJUTAN%20.png?raw=true',
       downloadUrl: 'https://drive.google.com/file/d/14mcruZhDb94IWhjscmOuQpWIzwratgTK/view?usp=drive_link',
       allowDownload: false
+    },
+    { 
+      id: 6, 
+      name: 'Laporan Pengawasan Rencana Bisnis Semester I 2025', 
+      date: 'Semester I 2025', 
+      size: 'PDF',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/pengawasan%20rencana%20bisnis%20smt%201%202025.jpg?raw=true',
+      downloadUrl: 'https://drive.google.com/file/d/1EzYR462TwFtEWGXPBEscWovmxuSRdfzJ/view?usp=drive_link',
+      allowDownload: false
+    },
+    { 
+      id: 7, 
+      name: 'Laporan Pengawasan Rencana Bisnis Semester II 2025', 
+      date: 'Semester II 2025', 
+      size: 'PDF',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/pengawasan%20rencana%20bisnis%20smt%202%202025.jpg?raw=true',
+      downloadUrl: 'https://drive.google.com/file/d/1T4KOEZyVJiHoNf-_M7_1fb1wq29Tgpdn/view?usp=drive_link',
+      allowDownload: false
+    },
+    { 
+      id: 8, 
+      name: 'Laporan Pengawasan Rencana Bisnis Semester I 2026', 
+      date: 'Semester I 2026', 
+      size: 'PDF',
+      imageUrl: 'https://github.com/danapensiunjm-glitch/assets/blob/main/pengawasn%20rencan%20bisnis%20smt%201%202026.jpg?raw=true',
+      downloadUrl: 'https://drive.google.com/file/d/1JAtfd6WQenSNRyE3XlkLmcyk8rzAPIFq/view?usp=drive_link',
+      allowDownload: false
     }
   ];
 
