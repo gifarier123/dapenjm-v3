@@ -4,6 +4,31 @@ import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
+    id: 16,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/HSP26%20(1).jpeg?raw=true",
+    caption: "Kegiatan Upacara Hari Sumpah Pemuda",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HSP26%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HSP26%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HSP26%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HSP26%20(5).jpeg?raw=true"
+    ]
+  },
+  {
+    id: 15,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/HKP26%20(1).jpeg?raw=true",
+    caption: "Kegiatan Upacara Hari Kesaktian Pancasila",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HKP26%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HKP26%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HKP26%20(5).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HKP26%20(6).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HKP26%20(7).jpeg?raw=true"
+    ]
+  },
+  {
     id: 14,
     imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/HUT%20DAPEN%20(1).jpg?raw=true",
     caption: "HUT Dana Pensiun Jasa Marga ke 29",
@@ -186,6 +211,8 @@ export const Gallery: React.FC = () => {
   const [selectedGallery, setSelectedGallery] = useState<GalleryItem | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -213,18 +240,39 @@ export const Gallery: React.FC = () => {
     setSelectedGallery(null);
   };
 
-  const nextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const nextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     if (selectedGallery && selectedGallery.images) {
       setCurrentImageIndex((prev) => (prev + 1) % selectedGallery.images!.length);
     }
   };
 
-  const prevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const prevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     if (selectedGallery && selectedGallery.images) {
       setCurrentImageIndex((prev) => (prev - 1 + selectedGallery.images!.length) % selectedGallery.images!.length);
     }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = null;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > 50) {
+      nextImage();
+    } else if (distance < -50) {
+      prevImage();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
   };
 
   return (
@@ -311,7 +359,13 @@ export const Gallery: React.FC = () => {
             <X className="w-6 h-6" />
           </button>
           
-          <div className="relative w-full max-w-5xl max-h-[80vh] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="relative w-full max-w-5xl max-h-[80vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             {selectedGallery.images.length > 1 && (
               <button 
                 onClick={prevImage}
