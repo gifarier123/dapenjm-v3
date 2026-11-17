@@ -4,6 +4,19 @@ import { Instagram, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 const galleryItems: GalleryItem[] = [
   {
+    id: 17,
+    imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/HPN%2026%20(1).jpeg?raw=true",
+    caption: "Kegiatan Upacara Hari Pahlawan Nasional 2026",
+    category: "Kegiatan",
+    images: [
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HPN%2026%20(1).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HPN%2026%20(2).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HPN%2026%20(3).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HPN%2026%20(4).jpeg?raw=true",
+      "https://github.com/danapensiunjm-glitch/assets/blob/main/HPN%2026%20(5).jpeg?raw=true"
+    ]
+  },
+  {
     id: 16,
     imageUrl: "https://github.com/danapensiunjm-glitch/assets/blob/main/HSP26%20(1).jpeg?raw=true",
     caption: "Kegiatan Upacara Hari Sumpah Pemuda",
